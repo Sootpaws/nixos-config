@@ -13,7 +13,9 @@ debug:
 update:
 	nix flake update
 
+
 # Internal build steps
+
 prepare:
 	git log -n 1 --pretty=format:\"System\ configuration\ commit\ %h\ on\ %ci\" > motd.nix
 	mv .git ..git
