@@ -1,4 +1,4 @@
-# 
+# General system-level configuration
 
 { config, pkgs, lib, home-manager, hostName, ... }: {
     # Keep any system-level state compatible with this version

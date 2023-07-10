@@ -18,7 +18,7 @@
                 };
                 modules = [
                     ./systems/rpi.nix
-                    ./configuration_main.nix
+                    ./general.nix
                 ];
             };
         };
