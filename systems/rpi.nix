@@ -7,17 +7,14 @@
     # NixOS wants to enable GRUB by default
     boot.loader.grub.enable = false;
 
-    # If you have a Raspberry Pi 2 or 3, pick this:
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    # U-Boot setup
+    boot.loader.generic-extlinux-compatible.enable = true;
 
-    # A bunch of boot parameters needed for optimal runtime on RPi 3b+
+    # This supposedly helps with "optimal runtime" on the Pi
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     boot.kernelParams = ["cma=256M"];
-    boot.loader.raspberryPi.enable = true;
-    boot.loader.raspberryPi.version = 3;
-    boot.loader.raspberryPi.uboot.enable = true;
-    boot.loader.raspberryPi.firmwareConfig = ''
-        gpu_mem=256
-    '';
+
+    # Include the RPi GPU interface libraries
     environment.systemPackages = [ pkgs.libraspberrypi ];
 
     # File systems configuration for using the installer's partition layout
