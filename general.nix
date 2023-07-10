@@ -11,8 +11,9 @@
     users.mutableUsers = false;
 
     # Basic setup for main user
-    users.users.sootpaws = {
+    users.users.primary = {
         isNormalUser = true;
+        name = "sootpaws";
         description = "sootpaws";
         password = "no";
         extraGroups = [ "wheel" "networkmanager" ];
@@ -22,7 +23,7 @@
     imports = [
         home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
-            home-manager.users.sootpaws = import ./home.nix;
+            home-manager.users.primary = import ./home.nix;
         }
     ];
 
