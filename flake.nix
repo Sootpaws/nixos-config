@@ -14,7 +14,7 @@
             "sootpaws-rpi-nixos" = nixpkgs.lib.nixosSystem {
                 specialArgs = { inherit home-manager; };
                 modules = [
-                    ./system_rpi.nix
+                    ./systems/rpi.nix
                     ./configuration_main.nix
                 ];
             };
