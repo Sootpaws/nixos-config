@@ -12,7 +12,10 @@
     outputs = inputs@{ nixpkgs, home-manager, ... }: {
         nixosConfigurations = {
             "sootpaws-rpi-nixos" = nixpkgs.lib.nixosSystem {
-                specialArgs = { inherit home-manager; };
+                specialArgs = {
+                    inherit home-manager;
+                    hostName = "sootpaws-rpi-nixos";
+                };
                 modules = [
                     ./systems/rpi.nix
                     ./configuration_main.nix

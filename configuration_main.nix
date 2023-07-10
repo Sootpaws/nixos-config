@@ -1,6 +1,6 @@
 # 
 
-{ config, pkgs, lib, home-manager, ... }: {
+{ config, pkgs, lib, home-manager, hostName, ... }: {
     # Keep any system-level state compatible with this version
     system.stateVersion = "23.05";
 
@@ -39,7 +39,7 @@
 
     # Configure networking
     networking = {
-        hostName = "sootpaws-rpi-nixos";
+        inherit hostName;
         wireless = {
             enable = true;
             networks = (import ./private.nix).wireless;
