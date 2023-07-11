@@ -1,6 +1,6 @@
 # General system-level configuration
 
-{ config, pkgs, lib, home-manager, hostName, ... }: {
+{ config, pkgs, lib, home-manager, hostName, ... }: let primaryUser = "sootpaws"; in {
     # Keep any system-level state compatible with this version
     system.stateVersion = "23.05";
 
@@ -13,8 +13,8 @@
     # Basic setup for main user
     users.users.primary = {
         isNormalUser = true;
-        name = "sootpaws";
-        description = "sootpaws";
+        name = primaryUser;
+        description = primaryUser;
         hashedPassword = (import ./private.nix).mainHashedPassword;
         extraGroups = [ "wheel" "networkmanager" ];
     };
