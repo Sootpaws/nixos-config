@@ -23,6 +23,5 @@ prepare:
 	mv .git ..git
 
 cleanup:
-	touch motd.nix
-	rm motd.nix
-	mv ..git .git
+	rm motd.nix || true
+	mv ..git .git || true
