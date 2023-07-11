@@ -1,11 +1,13 @@
 # Shorthands for common operations
 
 deploy:
+	make cleanup
 	make prepare
 	sudo nixos-rebuild switch --flake .
 	make cleanup
 
 debug:
+	make cleanup
 	make prepare
 	nixos-rebuild build --flake . --show-trace --verbose
 	make cleanup
