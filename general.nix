@@ -15,7 +15,7 @@
         isNormalUser = true;
         name = "sootpaws";
         description = "sootpaws";
-        password = "no";
+        hashedPassword = (import ./private.nix).mainHashedPassword;
         extraGroups = [ "wheel" "networkmanager" ];
     };
 
