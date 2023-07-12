@@ -47,7 +47,13 @@ primaryUser: { config, pkgs, ... }: {
             rmtrailingws = true;
             scrollbar = true;
             scrollspeed = 1;
-            statusformatl = "$(modified)$(filename) ($(line)/$(lines),$(col)) %$(percentage) $(status.paste)| .$(opt:filetype) $(opt:fileformat),$(opt.encoding)";
+            statusformatl =
+                "$(modified)$(filename) " +
+                "($(line)/$(lines),$(col)) %$(percentage) " +
+                "$(status.paste)| " +
+                "$(status.branch)@$(status.hash) | " +
+                "$(status.size) .$(opt:filetype) " +
+                "$(opt:fileformat),$(opt.encoding)";
             statusformatr = "";
             tabmovement = true;
             tabstospaces = true;
