@@ -33,4 +33,7 @@ primaryUser: { config, pkgs, ... }: {
             };
         };
     };
+
+    # Micro config
+    programs.micro.enable = true;
 }
