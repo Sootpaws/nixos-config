@@ -18,7 +18,8 @@ update:
 
 prepare:
 	make cleanup
-	git log -n 1 --pretty=format:\"System\ configuration\ commit\ %h\ on\ %ci\" > motd.nix
+	echo "\"System configuration commit: $$(git branch --show-current)@\
+	$$(git log -n 1 --pretty=format:%h\ on\ %ci)\"" > motd.nix
 	mv .git ..git
 
 cleanup:
