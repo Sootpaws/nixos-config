@@ -35,5 +35,22 @@ primaryUser: { config, pkgs, ... }: {
     };
 
     # Micro config
-    programs.micro.enable = true;
+    home.sessionVariables.EDITOR = "micro";
+    programs.micro = {
+        enable = true;
+        settings = {
+            colorcolumn = 80;
+            colorscheme = "cmc-16";
+            diffgutter = true;
+            hlsearch = true;
+            multiopen = "vsplit";
+            rmtrailingws = true;
+            scrollbar = true;
+            scrollspeed = 1;
+            statusformatl = "$(modified)$(filename) ($(line)/$(lines),$(col)) %$(percentage) $(status.paste)| .$(opt:filetype) $(opt:fileformat),$(opt.encoding)";
+            statusformatr = "";
+            tabmovement = true;
+            tabstospaces = true;
+        };
+    };
 }
