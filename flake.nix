@@ -13,7 +13,9 @@
         nixosConfigurations = {
             "sootpaws-rpi-nixos" = nixpkgs.lib.nixosSystem {
                 specialArgs = {
-                    inherit home-manager;
+                    extra-pkgs = {
+                        inherit home-manager;
+                    };
                     hostName = "sootpaws-rpi-nixos";
                 };
                 modules = [
