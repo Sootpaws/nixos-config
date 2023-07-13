@@ -14,6 +14,8 @@ primaryUser: { config, pkgs, ... }: {
     home.username = primaryUser;
     home.homeDirectory = "/home/" + primaryUser;
 
+    xdg.enable = true;
+
     # Install-only packages
     home.packages = [
         pkgs.neofetch
