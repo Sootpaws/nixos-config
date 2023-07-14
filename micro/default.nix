@@ -1,9 +1,15 @@
 # Configuration for the Micro text editor
 
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: let
+    patched_plugins = builtins.fetchGit {
+        url = "https://github.com/humannum14916/updated-plugins.git";
+        ref = "filemanager-fixes";
+        rev = "7c183117ef6546ef39a8891f2d1cbac7a6ed42ab";
+    };
+in {
     # Set Micro as the main editor
     home.sessionVariables.EDITOR = "micro";
-    # Main config
+    # settings.json config, directly configurable through Nix
     programs.micro = {
         # Actually enable Micro
         enable = true;
@@ -44,6 +50,14 @@
             tabmovement = true;
             # Use spaces instead of tabs
             tabstospaces = true;
+        };
+    };
+    # Plugins and bindings.json, not directly configurable
+    xdg.configFile = {
+        # File manager plugin
+        fileManager = {
+            source = patched_plugins.outPath + "/filemanager-plugin";
+            target = "micro/plug/filemanager";
         };
     };
 }
