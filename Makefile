@@ -2,12 +2,12 @@
 
 deploy:
 	make prepare
-	sudo nixos-rebuild switch --flake .
+	sudo nixos-rebuild switch --flake . || true
 	make cleanup
 
 debug:
 	make prepare
-	nixos-rebuild build --flake . --show-trace --verbose
+	nixos-rebuild build --flake . --show-trace --verbose || true
 	make cleanup
 
 update:
