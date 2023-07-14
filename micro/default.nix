@@ -21,11 +21,11 @@ in {
             # Enable the diff gutter
             diffgutter = true;
             # Open the file manager on startup
-            filemanager.openonstart = true;
+            "filemanager.openonstart" = true;
             # Don't show dotfiles in the file tree
-            filemanager.showdotfiles = false;
+            "filemanager.showdotfiles" = false;
             # Don't show files ignored by VCS
-            filemanager.showignored = false;
+            "filemanager.showignored" = false;
             # Keep search results highlighted
             hlsearch = true;
             # Open multiple files as vertical splits
