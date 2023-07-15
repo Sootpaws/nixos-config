@@ -14,6 +14,7 @@ primaryUser: { config, pkgs, ... }: {
     home.username = primaryUser;
     home.homeDirectory = "/home/" + primaryUser;
 
+    # Have Home Manager manage XDG directories
     xdg.enable = true;
 
     # Install-only packages
