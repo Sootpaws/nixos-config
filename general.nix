@@ -23,7 +23,7 @@
     imports = [
         extra-pkgs.home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
-            home-manager.users.primary = import ./home.nix primaryUser;
+            home-manager.users.primary = import ./home primaryUser;
         }
     ];
 
