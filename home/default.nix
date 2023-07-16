@@ -2,6 +2,7 @@
 
 primaryUser: { config, pkgs, ... }: {
     imports = [
+        ./sway
         ./micro
     ];
 
