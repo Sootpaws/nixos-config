@@ -23,6 +23,11 @@ primaryUser: { config, pkgs, ... }: {
         pkgs.neofetch
     ];
 
+    # Nushell, shell
+    programs.nushell = {
+        enable = true;
+    };
+
     # Librewolf, web browser
     programs.librewolf = {
         enable = true;
