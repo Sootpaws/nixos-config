@@ -55,12 +55,12 @@ in {
     # Plugins and bindings.json, not directly configurable
     xdg.configFile = {
         # bindings.json
-        bindings = {
+        micro_bindings = {
             source = ./bindings.json;
             target = "micro/bindings.json";
         };
         # File manager plugin
-        fileManager = {
+        micro_fileManager = {
             source = patched_plugins.outPath + "/filemanager-plugin";
             target = "micro/plug/filemanager";
         };
