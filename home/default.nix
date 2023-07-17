@@ -23,7 +23,12 @@ primaryUser: { config, pkgs, ... }: {
         pkgs.neofetch
     ];
 
-    # Git config
+    # Librewolf, web browser
+    programs.librewolf = {
+        enable = true;
+    };
+
+    # Git, version control tool
     programs.git = {
         enable = true;
 
