@@ -13,11 +13,17 @@ set $right l
 set $up i
 set $down k
 
-# Start a terminal
-bindsym $mod+Return exec $term
+# Switch to open mode
+bindsym $mod+o mode "open"
+mode "open" {
+    bindsym t exec $term, mode "default"
+    bindsym w exec $web_browser, mode "default"
+    bindsym m exec $menu, mode "default"
 
-# Start the launcher
-bindsym $mod+d exec $menu
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Kill focused window
 bindsym $mod+Shift+q kill
