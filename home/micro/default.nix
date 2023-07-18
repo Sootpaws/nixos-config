@@ -35,7 +35,7 @@ in {
             # Enable the scroll bar
             scrollbar = true;
             # Set scroll speed
-            scrollspeed = 1;
+            scrollspeed = 8;
             # Status line format (left side)
             statusformatl =
                 "$(modified)$(filename) " +
