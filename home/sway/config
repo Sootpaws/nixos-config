@@ -197,6 +197,9 @@ bar {
 # Other
 #
 
+# Enable workspace toggling
+workspace_auto_back_and_forth yes
+
 # Idle config
 #     Turn off displays after 5 minutes
 #     Lock screen after 10 minutes
