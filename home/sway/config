@@ -162,6 +162,11 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Input configuration
 #
 
+input "type:keyboard" {
+    repeat_delay 250
+    repeat_rate 25
+}
+
 # Example configuration:
 #
 #   input "2:14:SynPS/2_Synaptics_TouchPad" {
