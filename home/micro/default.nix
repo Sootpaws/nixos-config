@@ -17,7 +17,7 @@ in {
             # Highlight column 80
             colorcolumn = 80;
             # Set the color scheme
-            colorscheme = "cmc-16";
+            colorscheme = "railscast";
             # Enable the diff gutter
             diffgutter = true;
             # Open the file manager on startup
