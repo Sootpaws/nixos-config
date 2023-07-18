@@ -198,12 +198,13 @@ bar {
 #
 
 # Idle config
-#     Lock screen and turn off displays after 5 minutes
+#     Turn off displays after 5 minutes
+#     Lock screen after 10 minutes
 #     Lock screen before computer goes to sleep
 exec swayidle -w \
-    timeout 500 'swaylock -f -c 000000' \
     timeout 500 'swaymsg "output * power off"' \
             resume 'swaymsg "output * power on"' \
+    timeout 1000 'swaylock -f -c 000000' \
     before-sleep 'swaylock -f -c 000000'
 
 # Include default configuration
