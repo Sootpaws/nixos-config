@@ -23,6 +23,11 @@ primaryUser: { config, pkgs, ... }: {
         pkgs.neofetch
     ];
 
+    # Alacritty, terminal emulator
+    programs.alacritty = {
+        enable = true;
+    };
+
     # Nushell, shell
     programs.nushell = {
         enable = true;
