@@ -3,6 +3,7 @@
 primaryUser: { config, pkgs, ... }: {
     imports = [
         ./sway
+        ./nushell
         ./micro
     ];
 
@@ -34,11 +35,6 @@ primaryUser: { config, pkgs, ... }: {
             window.opacity = 0.5;
             colors.transparent_background_colors = true;
         };
-    };
-
-    # Nushell, shell
-    programs.nushell = {
-        enable = true;
     };
 
     # Librewolf, web browser
