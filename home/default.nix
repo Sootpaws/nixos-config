@@ -26,6 +26,14 @@ primaryUser: { config, pkgs, ... }: {
     # Alacritty, terminal emulator
     programs.alacritty = {
         enable = true;
+
+        settings = {
+            # Functional
+            shell = { program = "nu"; };
+            # Visual
+            window.opacity = 0.5;
+            colors.transparent_background_colors = true;
+        };
     };
 
     # Nushell, shell
