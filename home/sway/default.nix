@@ -2,13 +2,13 @@
 
 { config, pkgs, ... }: {
     # Link the Sway config file
-    xdg.configFile.sway_config = {
+    xdg.configFile.swayConfig = {
         source = ./config;
         target = "sway/config";
     };
 
     # Link the wallpaper image
-    xdg.configFile.sway_wallpaper = {
+    xdg.configFile.swayWallpaper = {
         source = ./wallpaper.jpg;
         target = "sway/wallpaper.jpg";
     };

@@ -3,18 +3,18 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-        home-manager = {
+        homeManager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    outputs = inputs@{ nixpkgs, home-manager, ... }: {
+    outputs = inputs@{ nixpkgs, homeManager, ... }: {
         nixosConfigurations = {
             "sootpaws-rpi-nixos" = nixpkgs.lib.nixosSystem {
                 specialArgs = {
-                    extra-pkgs = {
-                        inherit home-manager;
+                    extraPkgs = {
+                        inherit homeManager;
                     };
                     hostName = "sootpaws-rpi-nixos";
                 };

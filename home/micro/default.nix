@@ -1,7 +1,7 @@
 # Configuration for the Micro text editor
 
 { config, pkgs, ... }: let
-    patched_plugins = builtins.fetchGit {
+    patchedPlugins = builtins.fetchGit {
         url = "https://github.com/humannum14916/updated-plugins.git";
         ref = "filemanager-fixes";
         rev = "7c183117ef6546ef39a8891f2d1cbac7a6ed42ab";
@@ -55,13 +55,13 @@ in {
     # Plugins and bindings.json, not directly configurable
     xdg.configFile = {
         # bindings.json
-        micro_bindings = {
+        microBindings = {
             source = ./bindings.json;
             target = "micro/bindings.json";
         };
         # File manager plugin
-        micro_fileManager = {
-            source = patched_plugins.outPath + "/filemanager-plugin";
+        microFileManager = {
+            source = patchedPlugins.outPath + "/filemanager-plugin";
             target = "micro/plug/filemanager";
         };
     };

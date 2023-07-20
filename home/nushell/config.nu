@@ -1,4 +1,4 @@
-# Sootpaws's Nushell configuration - main config file
+# Nushell configuration
 
 # Main config
 let-env config = {

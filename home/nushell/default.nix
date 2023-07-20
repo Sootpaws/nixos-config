@@ -7,9 +7,4 @@
         # Link the config file
         configFile = { source = ./config.nu; };
     };
-    # Link the environment file
-#    xdg.configFile.nushell_env = {
-#        source = ./env.nu;
-#        target = "nushell/env.nu";
-#    };
 }
