@@ -148,6 +148,9 @@ gaps inner 16px
 # Wallpaper
 output * bg ~/.config/sway/wallpaper.jpg fill
 
+# Font
+font pango:${theme.font} 11
+
 # Colors
 client.focused \
     ${theme.colors.accent.strong} ${theme.colors.primary.strong} \

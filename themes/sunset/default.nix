@@ -3,6 +3,8 @@
 {
     wallpaper = ./wallpaper.jpg;
 
+    font = "FiraMonoNerdFont";
+
     colors = {
         primary = {
             extra = "#3f4145";
