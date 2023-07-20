@@ -19,6 +19,9 @@ primaryUser: { config, pkgs, ... }: {
     # Have Home Manager manage XDG directories
     xdg.enable = true;
 
+    # Enable fontconfig
+    fonts.fontconfig.enable = true;
+
     # Install-only packages
     home.packages = [
         pkgs.neofetch
