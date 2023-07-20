@@ -37,6 +37,13 @@ primaryUser: { config, pkgs, ... }: {
         };
     };
 
+    # Starship, prompt
+    programs.starship = {
+        enable = true;
+        # This will be used with Nushell
+        enableNushellIntegration = true;
+    };
+
     # Librewolf, web browser
     programs.librewolf = {
         enable = true;
