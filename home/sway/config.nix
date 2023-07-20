@@ -1,4 +1,4 @@
-''
+theme: ''
 
 # Sway configuration
 
@@ -149,28 +149,22 @@ gaps inner 16px
 output * bg ~/.config/sway/wallpaper.jpg fill
 
 # Colors
-set $color_bgnd #393a3e
-set $color_text #9895aa
-set $color_border_light_focused   #de7136
-set $color_border_dark_focused    #c66530
-set $color_border_light_inactive  #855225
-set $color_border_dark_inactive   #7e4e24
-set $color_border_light_unfocused #483e35
-set $color_border_dark_unfocused  #423830
-set $color_border_light_urgent    #ff584e
-set $color_border_dark_urgent     #f05349
 client.focused \
-    $color_border_light_focused $color_bgnd $color_text \
-    $color_border_dark_focused $color_border_dark_focused
+    ${theme.colors.accent.strong} ${theme.colors.primary.strong} \
+    ${theme.colors.secondary.weak} ${theme.colors.accent.strong} \
+    ${theme.colors.accent.strong}
 client.focused_inactive \
-    $color_border_light_inactive $color_bgnd $color_text \
-    $color_border_dark_inactive $color_border_dark_inactive
+    ${theme.colors.accent.medium} ${theme.colors.primary.strong} \
+    ${theme.colors.secondary.weak} ${theme.colors.accent.medium} \
+    ${theme.colors.accent.medium}
 client.unfocused \
-    $color_border_light_unfocused $color_bgnd $color_text \
-    $color_border_dark_unfocused $color_border_dark_unfocused
+    ${theme.colors.accent.weak} ${theme.colors.primary.strong} \
+    ${theme.colors.secondary.weak} ${theme.colors.accent.weak} \
+    ${theme.colors.accent.weak}
 client.urgent \
-    $color_border_light_urgent $color_bgnd $color_text \
-    $color_border_dark_urgent $color_border_dark_urgent
+    ${theme.colors.accent.extra} ${theme.colors.primary.strong} \
+    ${theme.colors.secondary.weak} ${theme.colors.accent.extra} \
+    ${theme.colors.accent.extra}
 
 #
 # Tools

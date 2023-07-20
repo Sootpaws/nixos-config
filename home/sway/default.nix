@@ -3,7 +3,7 @@
 { config, pkgs, theme, ... }: {
     # Link the Sway config file
     xdg.configFile.swayConfig = {
-        text = import ./config.nix;
+        text = import ./config.nix theme;
         target = "sway/config";
     };
 
