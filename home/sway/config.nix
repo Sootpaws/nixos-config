@@ -1,3 +1,5 @@
+''
+
 # Sway configuration
 
 #
@@ -241,3 +243,5 @@ exec swayidle -w \
 
 # Include default configuration
 include /etc/sway/config.d/*
+
+''
