@@ -17,6 +17,7 @@
                         inherit homeManager;
                     };
                     hostName = "sootpaws-rpi-nixos";
+                    theme = import themes/sunset;
                 };
                 modules = [
                     ./hardware/rpi.nix

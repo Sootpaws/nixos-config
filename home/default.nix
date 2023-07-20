@@ -1,6 +1,6 @@
 # Home Manager configuration for the primary user
 
-primaryUser: { config, pkgs, ... }: {
+{ config, pkgs, theme, primaryUser, ... }: {
     imports = [
         ./sway
         ./nushell

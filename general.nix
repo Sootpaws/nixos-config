@@ -1,6 +1,6 @@
 # General system-level configuration
 
-{ config, pkgs, lib, extraPkgs, hostName, ... }: let primaryUser = "sootpaws"; in {
+{ config, pkgs, lib, extraPkgs, hostName, theme, ... }: let primaryUser = "sootpaws"; in {
     # Keep any system-level state compatible with this version
     system.stateVersion = "23.05";
 
@@ -22,8 +22,11 @@
     # Use Home Manager for user configuration
     imports = [
         extraPkgs.homeManager.nixosModules.home-manager {
+            home-manager.extraSpecialArgs = {
+                inherit theme primaryUser;
+            };
             home-manager.useGlobalPkgs = true;
-            home-manager.users.primary = import ./home primaryUser;
+            home-manager.users.primary = import ./home;
         }
     ];
 
