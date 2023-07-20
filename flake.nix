@@ -19,7 +19,7 @@
                     hostName = "sootpaws-rpi-nixos";
                 };
                 modules = [
-                    ./systems/rpi.nix
+                    ./hardware/rpi.nix
                     ./general.nix
                 ];
             };
