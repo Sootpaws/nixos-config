@@ -24,6 +24,7 @@ primaryUser: { config, pkgs, ... }: {
 
     # Install-only packages
     home.packages = [
+        pkgs.nerdfonts
         pkgs.neofetch
     ];
 
