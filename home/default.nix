@@ -38,6 +38,7 @@
             # Visual
             window.opacity = 0.5;
             colors.transparent_background_colors = true;
+            font = { family = theme.font; };
         };
     };
 
