@@ -39,6 +39,13 @@
             # Visual
             window.opacity = 0.5;
             font = { family = theme.font; };
+            colors = {
+                primary = {
+                    foreground = theme.colors.secondary.strong;
+                    dim_foreground = theme.colors.secondary.medium;
+                    background = theme.colors.primary.weak;
+                };
+            };
         };
     };
 
