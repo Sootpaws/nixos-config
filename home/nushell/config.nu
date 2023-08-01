@@ -1,5 +1,9 @@
 # Nushell configuration
 
+# Source and remove the environment setup script
+source "/tmp/nu_env_setup.nu"
+rm "/tmp/nu_env_setup.nu"
+
 # Main config
 let-env config = {
     show_banner: false

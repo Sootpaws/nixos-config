@@ -6,5 +6,7 @@
         enable = true;
         # Link the config file
         configFile = { source = ./config.nu; };
+        # Link the environment file
+        envFile = { source = ./env.nu; };
     };
 }
