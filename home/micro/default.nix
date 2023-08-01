@@ -1,6 +1,6 @@
 # Configuration for the Micro text editor
 
-{ config, pkgs, ... }: let
+{ config, pkgs, theme, ... }: let
     patchedPlugins = builtins.fetchGit {
         url = "https://github.com/humannum14916/updated-plugins.git";
         ref = "filemanager-fixes";
@@ -17,7 +17,7 @@ in {
             # Highlight column 80
             colorcolumn = 80;
             # Set the color scheme
-            colorscheme = "railscast";
+            colorscheme = "systheme";
             # Enable the diff gutter
             diffgutter = true;
             # Open the file manager on startup
@@ -52,12 +52,17 @@ in {
             tabstospaces = true;
         };
     };
-    # Plugins and bindings.json, not directly configurable
+    # Directly-linked config files
     xdg.configFile = {
         # bindings.json
         microBindings = {
             source = ./bindings.json;
             target = "micro/bindings.json";
+        };
+        # Color scheme
+        microColorScheme = {
+            text = import ./colorScheme.nix theme;
+            target = "micro/colorschemes/systheme.micro";
         };
         # File manager plugin
         microFileManager = {
