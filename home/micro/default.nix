@@ -9,6 +9,8 @@
 in {
     # Set Micro as the main editor
     home.sessionVariables.EDITOR = "micro";
+    # Enable true-color
+    home.sessionVariables.MICRO_TRUECOLOR = 1;
     # settings.json config, directly configurable through Nix
     programs.micro = {
         # Actually enable Micro
