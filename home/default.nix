@@ -28,6 +28,7 @@
     # Install-only packages
     home.packages = [
         pkgs.nerdfonts
+        pkgs.du-dust
         pkgs.neofetch
     ];
 
