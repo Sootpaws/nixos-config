@@ -10,8 +10,6 @@ color-link scrollbar           "${primary.weak},${secondary.weak}"
 
 color-link line-number         "${secondary.weak},${primary.weak}"
 color-link current-line-number "${primary.strong}"
-color-link gutter-error        "${accent.extra}"
-color-link gutter-warning      "${accent.strong}"
 
 color-link cursor-line         "${primary.weak}"
 color-link color-column        "${accent.weak}"
@@ -19,6 +17,8 @@ color-link color-column        "${accent.weak}"
 color-link message             "${secondary.medium}"
 color-link error-message       "${secondary.extra}"
 
+color-link gutter-error        "#ec3631"
+color-link gutter-warning      "#ec8931"
 color-link diff-added          "#00af00"
 color-link diff-modified       "#ffaf00"
 color-link diff-deleted        "d70000"
