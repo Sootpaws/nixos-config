@@ -6,7 +6,8 @@
 
     # Hardware
     powerManagement.cpuFreqGovernor = "powersave";
-    hardware.cpu.intel.updateMicrocode = false;
+    hardware.cpu.intel.updateMicrocode = true;
+    hardware.enableRedistributableFirmware = true;
 
     # Bootloader
     boot.loader.systemd-boot.enable = true;
