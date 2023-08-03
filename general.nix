@@ -47,10 +47,6 @@
     # Configure networking
     networking = {
         inherit hostName;
-        wireless = {
-            enable = true;
-            networks = (import ./private.nix).wireless;
-            interfaces = [ "wlan0" ];
-        };
+        networkmanager.enable = true;
     };
 }
