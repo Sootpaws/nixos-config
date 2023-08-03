@@ -1,6 +1,6 @@
 # Configuration for the Starship prompt
 
-{ lib, theme, ... }: {
+{ lib, settings, ... }: {
     programs.starship = {
         enable = true;
 
@@ -10,21 +10,21 @@
         settings = {
             add_newline = false;
 
-            palettes.system = {
-                pe = theme.colors.primary.extra;
-                ps = theme.colors.primary.strong;
-                pm = theme.colors.primary.medium;
-                pw = theme.colors.primary.weak;
+            palettes.system = with settings.theme; {
+                pe = colors.primary.extra;
+                ps = colors.primary.strong;
+                pm = colors.primary.medium;
+                pw = colors.primary.weak;
 
-                se = theme.colors.secondary.extra;
-                ss = theme.colors.secondary.strong;
-                sm = theme.colors.secondary.medium;
-                sw = theme.colors.secondary.weak;
+                se = colors.secondary.extra;
+                ss = colors.secondary.strong;
+                sm = colors.secondary.medium;
+                sw = colors.secondary.weak;
 
-                ae = theme.colors.accent.extra;
-                as = theme.colors.accent.strong;
-                am = theme.colors.accent.medium;
-                aw = theme.colors.accent.weak;
+                ae = colors.accent.extra;
+                as = colors.accent.strong;
+                am = colors.accent.medium;
+                aw = colors.accent.weak;
             };
             palette = "system";
 

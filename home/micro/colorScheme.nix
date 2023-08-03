@@ -1,4 +1,4 @@
-theme: with theme.colors; ''
+colors: with colors; ''
 
 color-link default             "${secondary.strong}"
 color-link selection           "${primary.strong},${secondary.strong}"

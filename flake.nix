@@ -16,8 +16,10 @@
                     extraPkgs = {
                         inherit homeManager;
                     };
-                    hostName = "sootpaws-laptop-nixos";
-                    theme = import themes/sunset;
+                    settings = {
+                        hostName = "sootpaws-laptop-nixos";
+                        theme = import themes/sunset;
+                    };
                 };
                 modules = [
                     ./hardware/laptop.nix
@@ -29,8 +31,10 @@
                     extraPkgs = {
                         inherit homeManager;
                     };
-                    hostName = "sootpaws-rpi-nixos";
-                    theme = import themes/sunset;
+                    settings = {
+                        hostName = "sootpaws-rpi-nixos";
+                        theme = import themes/sunset;
+                    };
                 };
                 modules = [
                     ./hardware/rpi.nix

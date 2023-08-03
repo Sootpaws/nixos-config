@@ -1,15 +1,15 @@
 # Configuration for the Sway tiling Wayland compositor
 
-{ config, pkgs, theme, ... }: {
+{ config, pkgs, settings, ... }: {
     # Link the Sway config file
     xdg.configFile.swayConfig = {
-        text = import ./config.nix theme;
+        text = import ./config.nix settings.theme;
         target = "sway/config";
     };
 
     # Link the wallpaper image
     xdg.configFile.swayWallpaper = {
-        source = theme.wallpaper;
+        source = settings.theme.wallpaper;
         target = "sway/wallpaper.jpg";
     };
 }

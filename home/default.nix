@@ -1,6 +1,6 @@
 # Home Manager configuration for the primary user
 
-{ lib, config, pkgs, theme, primaryUser, ... }: {
+{ lib, config, pkgs, settings, primaryUser, ... }: {
     imports = [
         ./sway
         ./alacritty
