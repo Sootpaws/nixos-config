@@ -54,22 +54,4 @@
     # Enable swap on luks
     boot.initrd.luks.devices."luks-ed27c180-2add-4ffe-98d0-4a93d6c89013".device = "/dev/disk/by-uuid/ed27c180-2add-4ffe-98d0-4a93d6c89013";
     boot.initrd.luks.devices."luks-ed27c180-2add-4ffe-98d0-4a93d6c89013".keyFile = "/crypto_keyfile.bin";
-
-    # Time zone
-    time.timeZone = "America/Los_Angeles";
-
-    # Internationalisation
-    i18n.defaultLocale = "en_US.UTF-8";
-
-    i18n.extraLocaleSettings = {
-        LC_ADDRESS = "en_US.UTF-8";
-        LC_IDENTIFICATION = "en_US.UTF-8";
-        LC_MEASUREMENT = "en_US.UTF-8";
-        LC_MONETARY = "en_US.UTF-8";
-        LC_NAME = "en_US.UTF-8";
-        LC_NUMERIC = "en_US.UTF-8";
-        LC_PAPER = "en_US.UTF-8";
-        LC_TELEPHONE = "en_US.UTF-8";
-        LC_TIME = "en_US.UTF-8";
-    };
 }
