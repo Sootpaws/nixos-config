@@ -1,5 +1,5 @@
 {
-    description = "NixOS configuration for sootpaws-rpi-nixos";
+    description = "NixOS configuration for sootpaws-*-nixos";
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -11,6 +11,19 @@
 
     outputs = inputs@{ nixpkgs, homeManager, ... }: {
         nixosConfigurations = {
+            "sootpaws-laptop-nixos" = nixpkgs.lib.nixosSystem {
+                specialArgs = {
+                    extraPkgs = {
+                        inherit homeManager;
+                    };
+                    hostName = "sootpaws-laptop-nixos";
+                    theme = import themes/sunset;
+                };
+                modules = [
+                    ./hardware/laptop.nix
+                    ./general.nix
+                ];
+            };
             "sootpaws-rpi-nixos" = nixpkgs.lib.nixosSystem {
                 specialArgs = {
                     extraPkgs = {
