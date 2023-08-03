@@ -32,4 +32,9 @@
         pkgs.du-dust
         pkgs.neofetch
     ];
+
+    # mpv, media player
+    programs.mpv = {
+        enable = true;
+    };
 }
