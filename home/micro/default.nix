@@ -16,6 +16,8 @@ in {
         # Actually enable Micro
         enable = true;
         settings = {
+            # Use the terminal emulator for clipboard
+            clipboard = "terminal";
             # Highlight column 80
             colorcolumn = 80;
             # Set the color scheme
