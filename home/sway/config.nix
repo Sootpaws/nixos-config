@@ -176,6 +176,9 @@ client.urgent \
 # Your preferred terminal emulator
 set $term alacritty
 
+# Web browser
+set $web_browser librewolf
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be
 # opened on the original workspace that the command was run on.
