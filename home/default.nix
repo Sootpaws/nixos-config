@@ -32,6 +32,7 @@
         du-dust
         neofetch
         comma
+        tor-browser-bundle-bin
     ];
 
     # mpv, media player
