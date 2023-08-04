@@ -5,7 +5,7 @@ source "/tmp/nu_env_setup.nu"
 rm "/tmp/nu_env_setup.nu"
 
 # Main config
-let-env config = {
+$env.config = {
     show_banner: false
     ls: {
         use_ls_colors: true
