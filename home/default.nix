@@ -27,10 +27,11 @@
     fonts.fontconfig.enable = true;
 
     # Install-only packages
-    home.packages = [
-        pkgs.nerdfonts
-        pkgs.du-dust
-        pkgs.neofetch
+    home.packages = with pkgs; [
+        nerdfonts
+        du-dust
+        neofetch
+        comma
     ];
 
     # mpv, media player
