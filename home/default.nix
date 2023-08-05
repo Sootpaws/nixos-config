@@ -30,9 +30,10 @@
     home.packages = with pkgs; [
         nerdfonts
         du-dust
-        neofetch
         comma
+        neofetch
         tor-browser-bundle-bin
+        helm
     ];
 
     # mpv, media player
