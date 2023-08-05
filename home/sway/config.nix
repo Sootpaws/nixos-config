@@ -138,6 +138,11 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Audio control
+bindsym --locked F1 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2
+bindsym --locked F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.2
+
 #
 # Appearence
 #
