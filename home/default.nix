@@ -8,7 +8,6 @@
         ./starship
         ./micro
         ./git
-        ./librewolf
     ];
 
     # Keep stateful data compatible with this version
@@ -32,6 +31,7 @@
         du-dust
         comma
         neofetch
+        librewolf
         tor-browser-bundle-bin
         helm
     ];
