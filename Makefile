@@ -12,7 +12,9 @@ debug:
 
 update:
 	nix flake update
-
+	git restore --staged .
+	git add flake.lock
+	git commit -m "Update flake.lock"
 
 # Internal build steps
 
