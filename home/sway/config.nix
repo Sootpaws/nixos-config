@@ -145,6 +145,12 @@ bindsym --locked F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.2
 bindsym --locked Shift+F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- -l 1.2
 bindsym --locked Shift+F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1.2
 
+# Backlight control
+bindsym --locked F6 exec brillo -U 5
+bindsym --locked F7 exec brillo -A 5
+bindsym --locked Shift+F6 exec brillo -U 1
+bindsym --locked Shift+F7 exec brillo -A 1
+
 #
 # Appearence
 #
