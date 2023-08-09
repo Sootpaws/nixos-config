@@ -28,6 +28,7 @@
     # Install-only packages
     home.packages = with pkgs; [
         nerdfonts
+        pavucontrol
         du-dust
         comma
         neofetch
