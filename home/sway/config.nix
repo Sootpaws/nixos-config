@@ -226,9 +226,24 @@ bar {
     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        background ${theme.colors.primary.medium}
+        statusline ${theme.colors.secondary.medium}
+        binding_mode ${theme.colors.accent.strong} \
+            ${theme.colors.primary.strong} \
+            ${theme.colors.secondary.medium}
+
+        focused_workspace ${theme.colors.accent.strong} \
+            ${theme.colors.primary.strong} \
+            ${theme.colors.secondary.medium}
+        active_workspace ${theme.colors.accent.medium} \
+            ${theme.colors.primary.medium} \
+            ${theme.colors.secondary.medium}
+        inactive_workspace ${theme.colors.accent.weak} \
+            ${theme.colors.primary.weak} \
+            ${theme.colors.secondary.medium}
+        urgent_workspace ${theme.colors.accent.extra} \
+            ${theme.colors.primary.weak} \
+            ${theme.colors.secondary.medium}
     }
 }
 
