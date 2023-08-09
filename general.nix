@@ -47,6 +47,9 @@
     # Enable XWayland to allow running X11 programs
     programs.xwayland.enable = true;
 
+    # Enable the Brillo backlight controller
+    hardware.brillo.enable = true;
+
     # Configure audio
     security.rtkit.enable = true;
     services.pipewire = {
