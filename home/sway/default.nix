@@ -1,6 +1,8 @@
 # Configuration for the Sway tiling Wayland compositor
 
-{ config, pkgs, settings, ... }: {
+{ settings, ... }: {
+    imports = [ ./i3bar-rs.nix ];
+
     # Link the Sway config file
     xdg.configFile.swayConfig = {
         text = import ./config.nix settings.theme;

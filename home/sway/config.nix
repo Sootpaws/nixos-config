@@ -220,11 +220,7 @@ input "type:touchpad" {
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
+    status_command i3status-rs ~/.config/i3status-rust/config-default.toml
     colors {
         background ${theme.colors.primary.medium}
         statusline ${theme.colors.secondary.medium}
