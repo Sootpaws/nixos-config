@@ -16,7 +16,7 @@
         name = primaryUser;
         description = primaryUser;
         hashedPassword = (import ./private.nix).mainHashedPassword;
-        extraGroups = [ "wheel" "networkmanager" ];
+        extraGroups = [ "wheel" "networkmanager" "video" ];
     };
 
     # Use Home Manager for user configuration
