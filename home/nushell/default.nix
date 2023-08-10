@@ -8,5 +8,11 @@
         configFile = { source = ./config.nu; };
         # Link the environment file
         envFile = { source = ./env.nu; };
+
+        shellAliases = {
+            ll = "ls -l";
+            la = "ls -a";
+            lla = "ls -la";
+        };
     };
 }
