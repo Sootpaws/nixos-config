@@ -27,8 +27,6 @@
 
     # Preserve space by sacrificing documentation and history
     documentation.nixos.enable = false;
-    nix.gc.automatic = true;
-    nix.gc.options = "--delete-older-than 30d";
     boot.tmp.cleanOnBoot = true;
 
     # Use 1GB of additional swap memory in order to not run out of memory
