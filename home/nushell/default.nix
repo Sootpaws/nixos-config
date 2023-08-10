@@ -13,6 +13,14 @@
             ll = "ls -l";
             la = "ls -a";
             lla = "ls -la";
+
+            dev = "nu ~/.config/nushell/scripts/dev.nu";
         };
+    };
+
+    # Link the scripts folder
+    xdg.configFile.nushellScripts = {
+        source = ./scripts;
+        target = "nushell/scripts";
     };
 }
