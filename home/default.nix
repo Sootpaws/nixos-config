@@ -31,6 +31,7 @@
         shotman
         pavucontrol
         nodejs_20
+        bacon
         du-dust
         comma
         neofetch
