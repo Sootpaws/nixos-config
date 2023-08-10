@@ -4,6 +4,9 @@
 source "/tmp/nu_env_setup.nu"
 rm "/tmp/nu_env_setup.nu"
 
+# Append ~/bin to $PATH
+$env.PATH = ($env.PATH | split row (char esep) | append $'($env.HOME)/bin')
+
 # Main config
 $env.config = {
     show_banner: false
