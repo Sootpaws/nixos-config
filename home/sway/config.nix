@@ -57,6 +57,9 @@ bindsym $mod+f fullscreen
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
 
+# Stick the focused window in place
+bindsym $mod+p sticky toggle
+
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
 
