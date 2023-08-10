@@ -1,6 +1,6 @@
 
 swaymsg splitv
-swaymsg $"exec alacritty --working-directory ($env.PWD) --command nu -e 'sleep 250ms'";
+swaymsg $"exec alacritty --working-directory ($env.PWD) --command bacon";
 sleep 0ms
 swaymsg move up
 swaymsg focus down
