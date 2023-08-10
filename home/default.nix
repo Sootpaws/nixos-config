@@ -30,6 +30,7 @@
         nerdfonts
         shotman
         pavucontrol
+        nodejs_20
         du-dust
         comma
         neofetch
