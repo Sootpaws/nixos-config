@@ -38,6 +38,7 @@
         librewolf
         (tor-browser-bundle-bin.override { useHardenedMalloc = false; })
         helm
+        gimp
     ];
 
     # mpv, media player
