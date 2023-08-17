@@ -12,5 +12,4 @@ swaymsg $"($run) nu -c 'sleep 10ms; micro'";
 sleep 0ms
 swaymsg move left
 sleep 0ms
-clear
-nix develop --command nu
+nix develop --command nu -e clear
