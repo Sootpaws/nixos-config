@@ -1,13 +1,16 @@
 
+let run = $"exec alacritty --working-directory ($env.PWD) --command nix develop --command"
+
 swaymsg splitv
-swaymsg $"exec alacritty --working-directory ($env.PWD) --command bacon";
+swaymsg $"($run) bacon";
 sleep 0ms
 swaymsg move up
 swaymsg focus down
-swaymsg $"exec alacritty --working-directory ($env.PWD) --command gitui";
+swaymsg $"($run) gitui";
 sleep 0ms
-swaymsg $"exec alacritty --working-directory ($env.PWD) --command nu -c 'sleep 10ms; micro'";
+swaymsg $"($run) nu -c 'sleep 10ms; micro'";
 sleep 0ms
 swaymsg move left
 sleep 0ms
 clear
+nix develop --command nu
