@@ -39,6 +39,7 @@
         (tor-browser-bundle-bin.override { useHardenedMalloc = false; })
         helm
         gimp
+        libreoffice
     ];
 
     # mpv, media player
