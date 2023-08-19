@@ -72,7 +72,7 @@
     };
 
     # Time zone
-    time.timeZone = "America/Los_Angeles";
+    time.timeZone = "America/New_York";
 
     # Internationalisation
     i18n.defaultLocale = "en_US.UTF-8";
