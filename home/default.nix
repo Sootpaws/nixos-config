@@ -37,6 +37,7 @@
         neofetch
         librewolf
         (tor-browser-bundle-bin.override { useHardenedMalloc = false; })
+        keepassxc
         helm
         gimp
         libreoffice
