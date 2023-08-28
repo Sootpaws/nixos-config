@@ -36,7 +36,7 @@
         comma
         neofetch
         librewolf
-        (tor-browser-bundle-bin.override { useHardenedMalloc = false; })
+        tor-browser-bundle-bin
         keepassxc
         helm
         gimp
