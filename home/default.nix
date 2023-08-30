@@ -41,6 +41,7 @@
         helm
         gimp
         libreoffice
+        freecad
     ];
 
     # mpv, media player
