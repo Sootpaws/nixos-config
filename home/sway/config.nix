@@ -214,6 +214,7 @@ input "type:keyboard" {
 
 input "type:touchpad" {
     accel_profile adaptive
+    dwt disabled
     tap enabled
     middle_emulation enabled
     drag disabled
