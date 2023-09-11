@@ -63,6 +63,8 @@
                 }
                 {
                     block = "battery";
+                    full_threshold = 99;
+                    empty_threshold = 1;
                     format = " $icon $percentage -> $power $time ";
                     charging_format = " $icon $percentage <- $power $time ";
                     interval = 1;
