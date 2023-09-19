@@ -14,6 +14,7 @@
             la = "ls -a";
             lla = "ls -la";
 
+            "'nixdev'" = "nix develop --command nu";
             dev = "nu ~/.config/nushell/scripts/dev.nu";
         };
     };
