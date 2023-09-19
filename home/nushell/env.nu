@@ -12,6 +12,6 @@ let script = ($vars | each { |it|
 })
 
 # Write it to a temporary file
-$script | save "/tmp/nu_env_setup.nu"
+$script | save --force "/tmp/nu_env_setup.nu"
 
 # This will later be sourced and removed by config.nu
