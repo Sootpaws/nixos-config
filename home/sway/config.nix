@@ -18,9 +18,9 @@ set $down k
 # Switch to open mode
 bindsym $mod+o mode "open"
 mode "open" {
-    bindsym t exec $term, mode "default"
-    bindsym w exec $web_browser, mode "default"
-    bindsym m exec $menu, mode "default"
+    bindsym t exec alacritty, mode "default"
+    bindsym w exec librewolf, mode "default"
+    bindsym m exec dmenu_path | dmenu | xargs swaymsg exec --, mode "default"
 
     # Return to default mode
     bindsym Return mode "default"
@@ -187,21 +187,6 @@ client.urgent \
     ${theme.colors.accent.extra} ${theme.colors.primary.strong} \
     ${theme.colors.secondary.weak} ${theme.colors.accent.extra} \
     ${theme.colors.accent.extra}
-
-#
-# Tools
-#
-
-# Your preferred terminal emulator
-set $term alacritty
-
-# Web browser
-set $web_browser librewolf
-
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be
-# opened on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 #
 # Input configuration
