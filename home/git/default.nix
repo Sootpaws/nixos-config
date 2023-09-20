@@ -17,5 +17,17 @@
                 features = "side-by-side";
             };
         };
+
+        aliases = {
+            s = "status";
+            a = "add";
+            d = "diff";
+            dc = "diff --cached";
+            c = "commit";
+            ca = "commit --amend";
+            u = "reset --soft HEAD^";
+            l = "log -n 3";
+            la = "log";
+        };
     };
 }
