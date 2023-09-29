@@ -9,37 +9,28 @@
         };
     };
 
-    outputs = inputs@{ nixpkgs, homeManager, ... }: {
-        nixosConfigurations = {
-            "sootpaws-laptop-nixos" = nixpkgs.lib.nixosSystem {
+    outputs = inputs@{ nixpkgs, homeManager, ... }: let
+        makeSystem =
+            { hostName, hardware, profile, theme }: nixpkgs.lib.nixosSystem {
                 specialArgs = {
-                    extraPkgs = {
-                        inherit homeManager;
-                    };
-                    settings = {
-                        hostName = "sootpaws-laptop-nixos";
-                        theme = import themes/sunset;
-                    };
+                    extraPkgs = { inherit homeManager; };
+                    settings = { inherit hostName theme; };
                 };
-                modules = [
-                    ./hardware/laptop.nix
-                    ./general.nix
-                ];
+                modules = [ hardware profile ];
             };
-            "sootpaws-rpi-nixos" = nixpkgs.lib.nixosSystem {
-                specialArgs = {
-                    extraPkgs = {
-                        inherit homeManager;
-                    };
-                    settings = {
-                        hostName = "sootpaws-rpi-nixos";
-                        theme = import themes/sunset;
-                    };
-                };
-                modules = [
-                    ./hardware/rpi.nix
-                    ./general.nix
-                ];
+    in {
+        nixosConfigurations = {
+            "sootpaws-laptop-nixos" = makeSystem {
+                hostName = "sootpaws-laptop-nixos";
+                hardware = ./hardware/laptop.nix;
+                profile = ./general.nix;
+                theme = import themes/sunset;
+            };
+            "sootpaws-rpi-nixos" = makeSystem {
+                hostName = "sootpaws-rpi-nixos";
+                hardware = ./hardware/rpi.nix;
+                profile = ./general.nix;
+                theme = import themes/sunset;
             };
         };
     };
