@@ -2,8 +2,6 @@
 
 { lib, config, pkgs, settings, primaryUser, ... }: {
     imports = [
-        ./sway
-        ./alacritty
         ./nushell
         ./starship
         ./micro
@@ -28,20 +26,11 @@
     # Install-only packages
     home.packages = with pkgs; [
         nerdfonts
-        shotman
-        pavucontrol
         nodejs_20
         bacon
         du-dust
         comma
         neofetch
-        librewolf
-        tor-browser-bundle-bin
-        keepassxc
-        helm
-        gimp
-        libreoffice
-        freecad
     ];
 
     # mpv, media player
