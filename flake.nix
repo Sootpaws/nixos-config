@@ -10,29 +10,30 @@
     };
 
     outputs = inputs@{ nixpkgs, homeManager, ... }: let
-        makeSystem =
-            { hostName, hardware, profile, theme }: nixpkgs.lib.nixosSystem {
-                specialArgs = {
-                    extraPkgs = { inherit homeManager; };
-                    settings = { inherit hostName theme; };
+        makeSystems = configs: let
+            makeSystem = { hostName, hardware, profile, theme }:
+                nixpkgs.lib.nixosSystem {
+                    specialArgs = {
+                        extraPkgs = { inherit homeManager; };
+                        settings = { inherit hostName theme; };
+                    };
+                    modules = [ hardware profile ];
                 };
-                modules = [ hardware profile ];
-            };
+        in builtins.foldl' (built: config:
+            { "${config.hostName}" = makeSystem config; } // built
+        ) {} configs;
     in {
-        nixosConfigurations = {
-            "sootpaws-laptop-nixos" = makeSystem {
-                hostName = "sootpaws-laptop-nixos";
-                hardware = ./hardware/laptop.nix;
-                profile = ./general.nix;
-                theme = import themes/sunset;
-            };
-            "sootpaws-rpi-nixos" = makeSystem {
-                hostName = "sootpaws-rpi-nixos";
-                hardware = ./hardware/rpi.nix;
-                profile = ./general.nix;
-                theme = import themes/sunset;
-            };
-        };
+        nixosConfigurations = makeSystems [{
+            hostName = "sootpaws-laptop-nixos";
+            hardware = ./hardware/laptop.nix;
+            profile = ./general.nix;
+            theme = import themes/sunset;
+        } {
+            hostName = "sootpaws-rpi-nixos";
+            hardware = ./hardware/rpi.nix;
+            profile = ./general.nix;
+            theme = import themes/sunset;
+        }];
     };
 }
 
