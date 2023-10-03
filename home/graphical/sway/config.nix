@@ -38,6 +38,9 @@ bindsym $mod+Shift+c reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit?' -B 'Yes' 'swaymsg exit'
 
+# Lock screen
+bindsym $mod+l exec $lock_screen
+
 # Drag windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 floating_modifier $mod normal
@@ -244,6 +247,9 @@ bar {
 # Enable workspace toggling
 workspace_auto_back_and_forth yes
 
+# Screen lock command
+set $screen_lock swaylock -f -c 000000
+
 # Idle config
 #     Turn off displays after 5 minutes
 #     Lock screen after 10 minutes
@@ -251,8 +257,8 @@ workspace_auto_back_and_forth yes
 exec swayidle -w \
     timeout 500 'swaymsg "output * power off"' \
             resume 'swaymsg "output * power on"' \
-    timeout 1000 'swaylock -f -c 000000' \
-    before-sleep 'swaylock -f -c 000000'
+    timeout 1000 $screen_lock \
+    before-sleep $screen_lock
 
 # Include default configuration
 include /etc/sway/config.d/*
