@@ -39,7 +39,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit?' -B 'Yes' 'swaymsg exit'
 
 # Lock screen
-bindsym $mod+l exec $lock_screen
+bindsym $mod+n exec $screen_lock
 
 # Drag windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
