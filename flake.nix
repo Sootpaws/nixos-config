@@ -26,14 +26,13 @@
         nixosConfigurations = makeSystems [{
             hostName = "sootpaws-laptop-nixos";
             hardware = ./hardware/laptop.nix;
-            profile = ./general.nix;
+            profile = ./profiles/graphical.nix;
             theme = import themes/sunset;
         } {
             hostName = "sootpaws-rpi-nixos";
             hardware = ./hardware/rpi.nix;
-            profile = ./general.nix;
+            profile = ./profiles/graphical.nix;
             theme = import themes/sunset;
         }];
     };
 }
-
