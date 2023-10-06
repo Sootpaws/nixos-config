@@ -18,11 +18,12 @@ set $down k
 # Switch to open mode
 bindsym $mod+o mode "open"
 mode "open" {
+    bindsym m exec dmenu_path | dmenu | xargs swaymsg exec --, mode "default"
     bindsym t exec alacritty, mode "default"
     bindsym w exec librewolf, mode "default"
-    bindsym m exec dmenu_path | dmenu | xargs swaymsg exec --, mode "default"
     bindsym a exec tor-browser, mode "default"
     bindsym k exec keepassxc, mode "default"
+    bindsym l exec libreoffice, mode "default"
 
     # Return to default mode
     bindsym Return mode "default"
