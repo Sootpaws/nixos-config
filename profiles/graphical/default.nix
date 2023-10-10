@@ -3,13 +3,13 @@
 { config, pkgs, lib, extraPkgs, settings, ... }: {
     # Use Home Manager for user configuration
     imports = [
-        ./base.nix
+        ../base
         extraPkgs.homeManager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
                 inherit settings;
             };
             home-manager.useGlobalPkgs = true;
-            home-manager.users.primary = import ./home/graphical;
+            home-manager.users.primary = import ./home;
         }
     ];
 
