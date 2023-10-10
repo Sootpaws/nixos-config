@@ -11,11 +11,11 @@
 
     outputs = inputs@{ nixpkgs, homeManager, ... }: let
         makeSystems = configs: let
-            makeSystem = { hostName, hardware, profile, theme }:
+            makeSystem = { hostName, hardware, profile, primaryUser, theme }:
                 nixpkgs.lib.nixosSystem {
                     specialArgs = {
                         extraPkgs = { inherit homeManager; };
-                        settings = { inherit hostName theme; };
+                        settings = { inherit hostName primaryUser theme; };
                     };
                     modules = [ hardware profile ];
                 };
@@ -27,11 +27,13 @@
             hostName = "sootpaws-laptop-nixos";
             hardware = ./hardware/laptop.nix;
             profile = ./profiles/graphical.nix;
+            primaryUser = "sootpaws";
             theme = import themes/sunset;
         } {
             hostName = "sootpaws-rpi-nixos";
             hardware = ./hardware/rpi.nix;
             profile = ./profiles/graphical.nix;
+            primaryUser = "sootpaws";
             theme = import themes/sunset;
         }];
     };

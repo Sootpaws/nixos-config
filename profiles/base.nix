@@ -1,6 +1,6 @@
 # General system-level configuration
 
-{ config, pkgs, lib, extraPkgs, settings, ... }: let primaryUser = "sootpaws"; in {
+{ config, pkgs, lib, extraPkgs, settings, ... }: {
     # Keep any system-level state compatible with this version
     system.stateVersion = "23.05";
 
@@ -18,8 +18,8 @@
     # Basic setup for main user
     users.users.primary = {
         isNormalUser = true;
-        name = primaryUser;
-        description = primaryUser;
+        name = settings.primaryUser;
+        description = settings.primaryUser;
         hashedPassword = (import ../private.nix).mainHashedPassword;
         extraGroups = [ "wheel" "networkmanager" "video" ];
     };
@@ -28,7 +28,7 @@
     imports = [
         extraPkgs.homeManager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
-                inherit settings primaryUser;
+                inherit settings;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.users.primary = import ./home/base;

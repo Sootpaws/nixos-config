@@ -1,12 +1,12 @@
 # General system-level configuration for running a grapical environment
 
-{ config, pkgs, lib, extraPkgs, settings, ... }: let primaryUser = "sootpaws"; in {
+{ config, pkgs, lib, extraPkgs, settings, ... }: {
     # Use Home Manager for user configuration
     imports = [
         ./base.nix
         extraPkgs.homeManager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
-                inherit settings primaryUser;
+                inherit settings;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.users.primary = import ./home/graphical;
