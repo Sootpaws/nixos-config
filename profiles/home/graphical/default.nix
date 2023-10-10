@@ -2,7 +2,6 @@
 
 { pkgs, ... }: {
     imports = [
-        ../base
         ./sway
         ./alacritty
     ];

@@ -25,15 +25,15 @@
     };
 
     # Use Home Manager for user configuration
-    # imports = [
-    #     extraPkgs.homeManager.nixosModules.home-manager {
-    #         home-manager.extraSpecialArgs = {
-    #             inherit settings primaryUser;
-    #         };
-    #         home-manager.useGlobalPkgs = true;
-    #         home-manager.users.primary = import ./home/graphical;
-    #     }
-    # ];
+    imports = [
+        extraPkgs.homeManager.nixosModules.home-manager {
+            home-manager.extraSpecialArgs = {
+                inherit settings primaryUser;
+            };
+            home-manager.useGlobalPkgs = true;
+            home-manager.users.primary = import ./home/base;
+        }
+    ];
 
     # Basic packages for managing configuration
     environment.systemPackages = with pkgs; [
