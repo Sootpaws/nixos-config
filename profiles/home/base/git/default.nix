@@ -21,6 +21,8 @@
         aliases = {
             s = "status";
             a = "add";
+            aa = "add .";
+            r = "restore";
             d = "diff";
             dc = "diff --cached";
             c = "commit";
