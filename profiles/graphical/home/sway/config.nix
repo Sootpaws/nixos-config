@@ -170,6 +170,9 @@ bindsym F10 exec shotman --capture region
 # Gaps
 gaps inner 16px
 
+# Disable title bars
+default_border pixel
+
 # Wallpaper
 output * bg ~/.config/sway/wallpaper.jpg fill
 
