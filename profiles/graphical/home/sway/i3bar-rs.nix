@@ -11,8 +11,8 @@
                 {
                     block = "cpu";
                     format = lib.concatStrings [
-                        " $icon $utilization $barchart"
-                        "$frequency avg, $max_frequency max "
+                        " $icon $utilization $barchart "
+                        "$frequency.eng(w:3) avg, $max_frequency.eng(w:3) max "
                     ];
                     interval = 1;
                 }
