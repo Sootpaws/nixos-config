@@ -8,6 +8,7 @@
 
     # Install-only packages
     home.packages = with pkgs; [
+        nerdfonts
         shotman
         pavucontrol
         librewolf
