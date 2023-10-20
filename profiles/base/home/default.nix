@@ -29,7 +29,9 @@
         bacon
         du-dust
         comma
-        neofetch
+        zip
+        unzip
+        wget
     ];
 
     # mpv, media player
