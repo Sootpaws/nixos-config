@@ -7,6 +7,8 @@
         userName = "Sootpaws";
         userEmail = "humannum14916@gmail.com";
 
+        extraConfig.init.defaultBranch = "main";
+
         # Enable Git Large File Storage
         lfs.enable = true;
 
