@@ -10,18 +10,7 @@
     };
 
     outputs = inputs@{ nixpkgs, homeManager, ... }: let
-        makeSystems = configs: let
-            makeSystem = { hostName, hardware, profile, primaryUser, theme }:
-                nixpkgs.lib.nixosSystem {
-                    specialArgs = {
-                        extraPkgs = { inherit homeManager; };
-                        settings = { inherit hostName primaryUser theme; };
-                    };
-                    modules = [ hardware profile ];
-                };
-        in builtins.foldl' (built: config:
-            { "${config.hostName}" = makeSystem config; } // built
-        ) {} configs;
+        makeSystems = import ./makeSystems.nix inputs;
     in {
         nixosConfigurations = makeSystems [{
             hostName = "sootpaws-laptop-nixos";
