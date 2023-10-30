@@ -17,9 +17,6 @@ $env.config = {
     rm: {
         always_trash: false
     }
-    cd: {
-        abbreviations: false
-    }
     table: {
         mode: rounded
         index_mode: always
