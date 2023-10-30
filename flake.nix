@@ -13,6 +13,7 @@
         makeSystems = import ./makeSystems.nix inputs;
         primaryUser = {
             systemName = "sootpaws";
+            displayName = "Sootpaws";
         };
     in {
         nixosConfigurations = makeSystems [{

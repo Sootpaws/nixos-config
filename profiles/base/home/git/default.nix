@@ -1,10 +1,10 @@
 # Configuration for the Git version control system
 
-{ ... }: {
+{ settings, ... }: {
     programs.git = {
         enable = true;
 
-        userName = "Sootpaws";
+        userName = settings.primaryUser.displayName;
         userEmail = "humannum14916@gmail.com";
 
         extraConfig.init.defaultBranch = "main";
