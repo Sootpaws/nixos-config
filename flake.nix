@@ -11,7 +11,9 @@
 
     outputs = inputs@{ nixpkgs, homeManager, ... }: let
         makeSystems = import ./makeSystems.nix inputs;
-        primaryUser = "sootpaws";
+        primaryUser = {
+            systemName = "sootpaws";
+        };
     in {
         nixosConfigurations = makeSystems [{
             hostName = "sootpaws-laptop-nixos";
