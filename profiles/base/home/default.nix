@@ -25,7 +25,6 @@
 
     # Install-only packages
     home.packages = with pkgs; [
-        nodejs_20
         bacon
         du-dust
         comma
