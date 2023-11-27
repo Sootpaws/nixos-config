@@ -255,16 +255,6 @@ workspace_auto_back_and_forth yes
 # Screen lock command
 set $screen_lock swaylock -f -c 000000
 
-# Idle config
-#     Turn off displays after 5 minutes
-#     Lock screen after 10 minutes
-#     Lock screen before computer goes to sleep
-exec swayidle -w \
-    timeout 500 'swaymsg "output * power off"' \
-            resume 'swaymsg "output * power on"' \
-    timeout 1000 $screen_lock \
-    before-sleep $screen_lock
-
 # Include default configuration
 include /etc/sway/config.d/*
 
