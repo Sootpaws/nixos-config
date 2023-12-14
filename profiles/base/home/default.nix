@@ -31,6 +31,7 @@
         zip
         unzip
         wget
+        socat
     ];
 
     # mpv, media player
