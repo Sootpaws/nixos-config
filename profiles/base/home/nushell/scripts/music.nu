@@ -1,9 +1,11 @@
+let mpv_socket = "/tmp/mpv.socket";
+
 def main [p] {
     if $p == "pause" {
         pause;
     } else {
         let playlist = $"($env.HOME)/Music/Playlists/($p)";
-        mpv --input-ipc-server=/tmp/mpv.socket --shuffle --vo=tct $playlist;
+        mpv $"--input-ipc-server=($mpv_socket)" --shuffle --vo=tct $playlist;
     }
 }
 
@@ -22,5 +24,5 @@ def pause [] {
 
 def mpv_command [c] {
     let args = $c | each { |it| '"' + $it + '"' };
-    $'{ "command": ($args) }' + "\n" | socat - /tmp/mpv.socket | from json
+    $'{ "command": ($args) }' + "\n" | socat - $mpv_socket | from json
 }
