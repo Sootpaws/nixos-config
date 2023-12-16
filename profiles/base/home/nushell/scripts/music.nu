@@ -19,8 +19,7 @@ def main [p] {
 }
 
 def pause [] {
-    let data = mpv_command [ "get_property" "pause" ];
-    let paused = $data | get data;
+    let paused = mpv_property "pause";
     let new_pause = { "true": "no", "false": "yes" } |
         get ($paused | into string);
     mpv_command [ "set_property" "pause" $new_pause ];
@@ -50,4 +49,8 @@ def mpv_command [c] {
     if ($data | length) == 0 {
         print "No music playing"; exit
     } else { $data | first }
+}
+
+def mpv_property [n] {
+    mpv_command [ "get_property" $n ] | get data
 }
