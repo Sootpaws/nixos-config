@@ -155,7 +155,8 @@ bindsym --locked Shift+F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- -l 1.2
 bindsym --locked Shift+F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1.2
 
 # Music control
-bindsym --locked --release F4 exec nu ~/.config/nushell/scripts/music.nu pause
+set $music_script nu ~/.config/nushell/scripts/music.nu
+bindsym --locked --release F4 exec $music_script pause
 
 # Backlight control
 bindsym --locked F6 exec brillo -U 5
