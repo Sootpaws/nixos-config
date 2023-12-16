@@ -20,14 +20,10 @@ def main [p] {
 
 def pause [] {
     let data = mpv_command [ "get_property" "pause" ];
-    if $data == null {
-        print "No music playing";
-    } else {
-        let paused = $data | get data;
-        let new_pause = { "true": "no", "false": "yes" } |
-            get ($paused | into string);
-        mpv_command [ "set_property" "pause" $new_pause ];
-    };
+    let paused = $data | get data;
+    let new_pause = { "true": "no", "false": "yes" } |
+        get ($paused | into string);
+    mpv_command [ "set_property" "pause" $new_pause ];
 }
 
 def stop [] { mpv_command [ "quit" ]; }
@@ -51,5 +47,7 @@ def mpv_command [c] {
     let data = $'{ "command": ($args) }' + "\n"
         | socat - $mpv_socket
         | split row "\n" | each { |it| $it | from json }
-    if ($data | length) == 0 { null } else { $data | first }
+    if ($data | length) == 0 {
+        print "No music playing"; exit
+    } else { $data | first }
 }
