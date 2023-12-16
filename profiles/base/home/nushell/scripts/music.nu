@@ -32,16 +32,20 @@ def next [] { mpv_command [ "playlist-next" "force" ]}
 def prev [] { mpv_command [ "playlist-prev" ]}
 
 def status [] {
-    let $song = mpv_property "media-title"
-        | str replace ".mp3" "" | str replace --all "_" " ";
-    let $paused = if (mpv_property "pause") { "music_pause" } else { "" };
-    let $playlist_item = (mpv_property "playlist-playing-pos") + 1;
-    let $playlist_count = mpv_property "playlist-count";
-    let $playlist = mpv_property "path" | split row "/" | drop 1 | last;
-    print ({
-        icon: $paused
-        text: $"($song) ($playlist_item)/($playlist_count) ($playlist)"
-    } | to json);
+    print ( if (ps | where name =~ "mpv") == [] {
+        { text: "" }
+    } else {
+        let $song = mpv_property "media-title"
+            | str replace ".mp3" "" | str replace --all "_" " ";
+        let $paused = if (mpv_property "pause") { "music_pause" } else { "" };
+        let $playlist_item = (mpv_property "playlist-playing-pos") + 1;
+        let $playlist_count = mpv_property "playlist-count";
+        let $playlist = mpv_property "path" | split row "/" | drop 1 | last;
+        {
+            icon: $paused
+            text: $"($song) ($playlist_item)/($playlist_count) ($playlist)"
+        };
+    } | to json)
 }
 
 def select_playlist [] {
