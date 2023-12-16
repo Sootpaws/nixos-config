@@ -3,5 +3,6 @@
     "Alt-d": "command:tree",
     "Enter": "lua:filemanager.try_open_at_cursor|InsertNewline",
     "Left": "lua:filemanager.goto_parent_dir,lua:filemanager.compress_at_cursor|lua:filemanager.try_open_at_cursor|CursorLeft",
-    "Right": "lua:filemanager.uncompress_at_cursor|lua:filemanager.compress_at_cursor|CursorRight"
+    "Right": "lua:filemanager.uncompress_at_cursor|lua:filemanager.compress_at_cursor|CursorRight",
+    "F4":""
 }
