@@ -3,10 +3,17 @@ let mpv_socket = "/tmp/mpv.socket";
 def main [p] {
     if $p == "pause" {
         pause;
+    } else if $p == "stop" {
+        stop;
+    } else if $p == "next" {
+        next;
+    } else if $p == "prev" {
+        prev;
     } else {
         let playlist = $"($env.HOME)/Music/Playlists/($p)";
         mpv $"--input-ipc-server=($mpv_socket)" --shuffle --vo=tct $playlist;
     }
+    null
 }
 
 def pause [] {
@@ -21,6 +28,10 @@ def pause [] {
     };
     null
 }
+
+def stop [] { mpv_command [ "quit" ]; }
+def next [] { mpv_command [ "playlist-next" "force" ]}
+def prev [] { mpv_command [ "playlist-prev" ]}
 
 def mpv_command [c] {
     let args = $c | each { |it| '"' + $it + '"' };
