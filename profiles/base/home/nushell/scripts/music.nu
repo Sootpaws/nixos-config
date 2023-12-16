@@ -24,5 +24,8 @@ def pause [] {
 
 def mpv_command [c] {
     let args = $c | each { |it| '"' + $it + '"' };
-    $'{ "command": ($args) }' + "\n" | socat - $mpv_socket | from json
+    let data = $'{ "command": ($args) }' + "\n"
+        | socat - $mpv_socket
+        | split row "\n" | each { |it| $it | from json }
+    if ($data | length) == 0 { null } else { $data | first }
 }
