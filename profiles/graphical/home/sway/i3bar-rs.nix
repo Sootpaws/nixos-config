@@ -5,6 +5,12 @@
             icons = "material-nf";
             blocks = [
                 {
+                    block = "custom";
+                    command = "nu ~/.config/nushell/scripts/music.nu status";
+                    json = true;
+                    interval = 1;
+                }
+                {
                     block = "temperature";
                     interval = 1;
                 }
