@@ -170,6 +170,12 @@ bindsym --locked Shift+F7 exec brillo -A 1
 # Screenshot
 bindsym F10 exec shotman --capture region
 
+# Passthrough
+bindsym $mod+Shift+p mode "passthrough"
+mode "passthrough" {
+    bindsym $mod+Shift+p mode "default"
+}
+
 #
 # Appearence
 #
