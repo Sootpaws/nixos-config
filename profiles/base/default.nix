@@ -44,6 +44,13 @@
     # Use greetd for login
     services.greetd = {
         enable = true;
+        settings = rec {
+            initial_session = {
+                command = "${pkgs.sway}/bin/sway";
+                user = settings.primaryUser.systemName;
+            };
+            default_session = initial_session;
+        };
     };
 
     # Configure networking
