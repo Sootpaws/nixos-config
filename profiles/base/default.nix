@@ -41,6 +41,11 @@
         gnumake
     ];
 
+    # Use greetd for login
+    services.greetd = {
+        enable = true;
+    };
+
     # Configure networking
     networking = {
         inherit (settings) hostName;
