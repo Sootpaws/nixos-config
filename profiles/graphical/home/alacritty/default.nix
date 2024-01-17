@@ -9,7 +9,7 @@
             shell = { program = "nu"; };
             # Visual
             window.opacity = 0.5;
-            font = { family = settings.theme.font; };
+            font = { normal = { family = settings.theme.font; }; };
             colors = {
                 primary = {
                     foreground = settings.theme.colors.secondary.strong;
