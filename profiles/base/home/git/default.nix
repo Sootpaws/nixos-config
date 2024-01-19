@@ -5,7 +5,7 @@
         enable = true;
 
         userName = settings.primaryUser.displayName;
-        userEmail = "humannum14916@gmail.com";
+        userEmail = settings.primaryUser.email;
 
         extraConfig.init.defaultBranch = "main";
 
