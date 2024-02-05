@@ -16,6 +16,10 @@ update:
 	git add flake.lock
 	git commit -m "Update flake.lock"
 
+updep:
+	make update
+	make deploy
+
 # Internal build steps
 
 prepare:
