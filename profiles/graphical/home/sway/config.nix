@@ -151,6 +151,26 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Output control mode
+bindsym $mod+m mode "monitor"
+mode "monitor" {
+    # Scaling control
+    bindsym 1 output - scale 1
+    bindsym 2 output - scale 1.1
+    bindsym 3 output - scale 1.2
+    bindsym 4 output - scale 1.3
+    bindsym 5 output - scale 1.4
+    bindsym 6 output - scale 1.5
+    bindsym 7 output - scale 1.6
+    bindsym 8 output - scale 1.7
+    bindsym 9 output - scale 1.8
+    bindsym 0 output - scale 1.9
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # Audio control
 bindsym --locked F1 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym --locked F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.2
