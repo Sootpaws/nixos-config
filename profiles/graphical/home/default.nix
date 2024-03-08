@@ -16,6 +16,7 @@
         keepassxc
         helm
         gimp
+        krita
         libreoffice
     ];
 }
