@@ -22,6 +22,10 @@
     # Enable the Brillo backlight controller
     hardware.brillo.enable = true;
 
+    # Enable VirtualBox
+    virtualisation.virtualbox.host.enable = true;
+    users.users.primary.extraGroups = [ "vboxusers" ];
+
     # Configure audio
     security.rtkit.enable = true;
     services.pipewire = {
