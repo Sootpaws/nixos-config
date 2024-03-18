@@ -28,6 +28,7 @@ mode "open" {
     bindsym k exec keepassxc, mode "default"
     bindsym l exec libreoffice, mode "default"
     bindsym r exec krita, mode "default"
+    bindsym v exec VirtualBox, mode "default"
     bindsym F4 exec $term --command $music_script select, mode "default"
 
     # Return to default mode
