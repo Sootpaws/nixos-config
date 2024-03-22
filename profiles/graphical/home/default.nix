@@ -1,6 +1,6 @@
 # Home Manager configuration for graphical environments
 
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
     imports = [
         ./sway
         ./alacritty
@@ -19,4 +19,8 @@
         krita
         libreoffice
     ];
+
+    # Set screenshots directory
+    home.sessionVariables.XDG_SCREENSHOTS_DIR =
+        config.home.homeDirectory + "/Pictures/Screenshots";
 }
