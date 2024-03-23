@@ -16,8 +16,6 @@
 
             nixdev = "nix develop --command nu";
             nixsh = "nix-shell --command nu";
-            dev = "nu ~/.config/nushell/scripts/dev.nu";
-            music = "nu ~/.config/nushell/scripts/music.nu";
         };
     };
 
