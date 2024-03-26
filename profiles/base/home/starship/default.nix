@@ -30,7 +30,7 @@
 
             format = lib.concatStrings [
                 "[           ](bg:pe)[](fg:pe bg:ps)["
-                " $username@$hostname:$localip "
+                " $username@$hostname "
                 "](bg:ps)[](fg:ps bg:pm)["
                 "( $package$rust)"
                 "](bg:pm)[](fg:pm)$line_break"
