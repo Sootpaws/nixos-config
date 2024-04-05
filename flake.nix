@@ -20,14 +20,12 @@
         nixosConfigurations = makeSystems [{
             hostName = "sootpaws-laptop-nixos";
             inherit primaryUser;
-            hardware = ./hardware/laptop.nix;
-            profile = ./profiles/graphical;
+            modules = [./hardware/laptop.nix ./profiles/graphical];
             theme = import themes/sunset;
         } {
             hostName = "sootpaws-rpi-nixos";
             inherit primaryUser;
-            hardware = ./hardware/rpi.nix;
-            profile = ./profiles/graphical;
+            modules = [./hardware/rpi.nix ./profiles/graphical];
             theme = import themes/sunset;
         }];
     };
