@@ -6,6 +6,7 @@
         ../base
         extraPkgs.homeManager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
+                sysConfig = config;
                 inherit settings;
             };
             home-manager.useGlobalPkgs = true;

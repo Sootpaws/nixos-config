@@ -28,6 +28,7 @@
     imports = [
         extraPkgs.homeManager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
+                systemConfig = config;
                 inherit settings;
             };
             home-manager.useGlobalPkgs = true;
