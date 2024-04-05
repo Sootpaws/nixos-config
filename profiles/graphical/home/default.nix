@@ -2,8 +2,8 @@
 
 { pkgs, config, ... }: {
     imports = [
-        ./sway
-        ./alacritty
+        ../../../programs/sway
+        ../../../programs/alacritty
     ];
 
     # Install-only packages

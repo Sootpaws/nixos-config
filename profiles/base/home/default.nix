@@ -2,10 +2,10 @@
 
 { lib, sysConfig, pkgs, settings, ... }: {
     imports = [
-        ./nushell
-        ./starship
-        ./micro
-        ./git
+        ../../../programs/nushell
+        ../../../programs/starship
+        ../../../programs/micro
+        ../../../programs/git
     ];
 
     # Keep stateful data compatible with this version
