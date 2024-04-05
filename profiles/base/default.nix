@@ -1,6 +1,6 @@
 # General system-level configuration
 
-{ config, pkgs, extraPkgs, settings, ... }: {
+{ config, pkgs, extraPkgs, hostName, ... }: {
     # Keep any system-level state compatible with this version
     system.stateVersion = "23.05";
 
@@ -55,7 +55,7 @@
 
     # Configure networking
     networking = {
-        inherit (settings) hostName;
+        inherit hostName;
         networkmanager.enable = true;
     };
 

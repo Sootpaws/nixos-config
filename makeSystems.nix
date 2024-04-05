@@ -2,8 +2,8 @@
     let makeSystem = { hostName, modules }:
         nixpkgs.lib.nixosSystem {
             specialArgs = {
+                inherit hostName;
                 extraPkgs = { inherit homeManager; };
-                settings = { inherit hostName; };
             };
             inherit modules;
         };
