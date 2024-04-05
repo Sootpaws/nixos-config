@@ -1,6 +1,6 @@
 # Configuration for the Micro text editor
 
-{ sysConfig, pkgs, ... }: let
+{ sysConfig, ... }: let
     patchedPlugins = builtins.fetchGit {
         url = "https://github.com/humannum14916/updated-plugins.git";
         ref = "filemanager-fixes";

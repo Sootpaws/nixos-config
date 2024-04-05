@@ -1,6 +1,6 @@
 # General system-level configuration for running a grapical environment
 
-{ config, pkgs, lib, extraPkgs, settings, ... }: {
+{ config, extraPkgs, settings, ... }: {
     # Use Home Manager for user configuration
     imports = [
         ../base

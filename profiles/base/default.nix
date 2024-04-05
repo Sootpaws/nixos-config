@@ -1,6 +1,6 @@
 # General system-level configuration
 
-{ config, pkgs, lib, extraPkgs, settings, ... }: {
+{ config, pkgs, extraPkgs, settings, ... }: {
     # Keep any system-level state compatible with this version
     system.stateVersion = "23.05";
 

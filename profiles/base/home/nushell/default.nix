@@ -1,6 +1,6 @@
 # Configuration for the Nu shell
 
-{ config, pkgs, ... }: {
+{ ... }: {
     programs.nushell = {
         # Actually enable Nu
         enable = true;

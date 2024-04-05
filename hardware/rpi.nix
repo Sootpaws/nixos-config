@@ -1,6 +1,6 @@
 # Hardware and basic system configuration for the RPi 3b+
 
-{ config, pkgs, lib, ... }: {
+{ ... }: {
     # This is an aarch64-linux system
     nixpkgs.hostPlatform = "aarch64-linux";
 
