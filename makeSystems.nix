@@ -1,9 +1,9 @@
 { nixpkgs, homeManager, ... }: configs:
-    let makeSystem = { hostName, modules, primaryUser, theme }:
+    let makeSystem = { hostName, modules, primaryUser }:
         nixpkgs.lib.nixosSystem {
             specialArgs = {
                 extraPkgs = { inherit homeManager; };
-                settings = { inherit hostName primaryUser theme; };
+                settings = { inherit hostName primaryUser; };
             };
             inherit modules;
         };

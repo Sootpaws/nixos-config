@@ -1,6 +1,6 @@
 # Configuration for the Alacritty terminal emulator
 
-{ settings, ... }: {
+{ sysConfig, ... }: {
     programs.alacritty = {
         enable = true;
 
@@ -9,12 +9,12 @@
             shell = { program = "nu"; };
             # Visual
             window.opacity = 0.5;
-            font = { normal = { family = settings.theme.font; }; };
+            font = { normal = { family = sysConfig.theme.font; }; };
             colors = {
                 primary = {
-                    foreground = settings.theme.colors.secondary.strong;
-                    dim_foreground = settings.theme.colors.secondary.medium;
-                    background = settings.theme.colors.primary.weak;
+                    foreground = sysConfig.theme.colors.secondary.strong;
+                    dim_foreground = sysConfig.theme.colors.secondary.medium;
+                    background = sysConfig.theme.colors.primary.weak;
                 };
             };
         };

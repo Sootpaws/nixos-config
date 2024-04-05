@@ -1,6 +1,6 @@
 # Configuration for the Starship prompt
 
-{ lib, settings, ... }: {
+{ lib, sysConfig, ... }: {
     programs.starship = {
         enable = true;
 
@@ -10,7 +10,7 @@
         settings = {
             add_newline = false;
 
-            palettes.system = with settings.theme; {
+            palettes.system = with sysConfig.theme; {
                 pe = colors.primary.extra;
                 ps = colors.primary.strong;
                 pm = colors.primary.medium;
