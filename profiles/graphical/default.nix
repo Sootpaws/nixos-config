@@ -1,13 +1,12 @@
 # General system-level configuration for running a grapical environment
 
-{ config, extraPkgs, settings, ... }: {
+{ config, extraPkgs, ... }: {
     # Use Home Manager for user configuration
     imports = [
         ../base
         extraPkgs.homeManager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
                 sysConfig = config;
-                inherit settings;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.users.primary = import ./home;
