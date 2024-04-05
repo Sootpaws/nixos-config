@@ -1,6 +1,6 @@
 # General system-level configuration for running a grapical environment
 
-{ config, extraPkgs, ... }: {
+{ config, pkgs, extraPkgs, ... }: {
     # Use Home Manager for user configuration
     imports = [
         ../base
@@ -15,6 +15,18 @@
 
     # Enable the Sway Wayland compositor
     programs.sway.enable = true;
+
+    # Use greetd for login
+    services.greetd = {
+        enable = true;
+        settings = rec {
+            initial_session = {
+                command = "${pkgs.sway}/bin/sway";
+                user = config.primaryUser.systemName;
+            };
+            default_session = initial_session;
+        };
+    };
 
     # Enable XWayland to allow running X11 programs
     programs.xwayland.enable = true;
