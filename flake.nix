@@ -11,26 +11,21 @@
 
     outputs = inputs@{ nixpkgs, homeManager, ... }: let
         makeSystems = import ./makeSystems.nix inputs;
-        primaryUser = {
-            systemName = "sootpaws";
-            displayName = "Sootpaws";
-            email = "sootpaws@proton.me";
-        };
     in {
         nixosConfigurations = makeSystems [{
             hostName = "sootpaws-laptop-nixos";
-            inherit primaryUser;
             modules = [
                 ./hardware/laptop.nix
                 ./profiles/graphical
+                ./users/sootpaws.nix
                 ./themes/sunset
             ];
         } {
             hostName = "sootpaws-rpi-nixos";
-            inherit primaryUser;
             modules = [
                 ./hardware/rpi.nix
                 ./profiles/graphical
+                ./users/sootpaws
                 ./themes/sunset
             ];
         }];

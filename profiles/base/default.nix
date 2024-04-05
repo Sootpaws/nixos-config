@@ -18,8 +18,8 @@
     # Basic setup for main user
     users.users.primary = {
         isNormalUser = true;
-        name = settings.primaryUser.systemName;
-        description = settings.primaryUser.systemName;
+        name = config.primaryUser.systemName;
+        description = config.primaryUser.systemName;
         hashedPassword = (import ../../private.nix).mainHashedPassword;
         extraGroups = [ "wheel" "networkmanager" "video" ];
     };
@@ -48,7 +48,7 @@
         settings = rec {
             initial_session = {
                 command = "${pkgs.sway}/bin/sway";
-                user = settings.primaryUser.systemName;
+                user = config.primaryUser.systemName;
             };
             default_session = initial_session;
         };
