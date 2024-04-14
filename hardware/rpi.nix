@@ -1,6 +1,9 @@
 # Hardware and basic system configuration for the RPi 3b+
 
 { ... }: {
+    # Keep any system-level state compatible with this version
+    system.stateVersion = "23.05";
+
     # This is an aarch64-linux system
     nixpkgs.hostPlatform = "aarch64-linux";
 

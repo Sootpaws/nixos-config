@@ -1,6 +1,9 @@
 # Hardware and basic system configuration for my laptop
 
 { ... }: {
+    # Keep any system-level state compatible with this version
+    system.stateVersion = "23.05";
+
     # System architecture
     nixpkgs.hostPlatform = "x86_64-linux";
 

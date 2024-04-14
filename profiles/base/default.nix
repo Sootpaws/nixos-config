@@ -1,9 +1,6 @@
 # General system-level configuration
 
 { config, pkgs, extraPkgs, hostName, ... }: {
-    # Keep any system-level state compatible with this version
-    system.stateVersion = "23.05";
-
     # Enable flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
