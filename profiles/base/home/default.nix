@@ -14,8 +14,8 @@
     programs.home-manager.enable = true;
 
     # General info
-    home.username = sysConfig.primaryUser.systemName;
-    home.homeDirectory = "/home/" + sysConfig.primaryUser.systemName;
+    home.username = sysConfig.primaryUserInfo.systemName;
+    home.homeDirectory = "/home/" + sysConfig.primaryUserInfo.systemName;
 
     # Have Home Manager manage XDG directories
     xdg.enable = true;

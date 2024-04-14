@@ -22,7 +22,7 @@
         settings = rec {
             initial_session = {
                 command = "${pkgs.sway}/bin/sway";
-                user = config.primaryUser.systemName;
+                user = config.primaryUserInfo.systemName;
             };
             default_session = initial_session;
         };

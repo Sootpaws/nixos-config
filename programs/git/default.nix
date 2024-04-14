@@ -4,8 +4,8 @@
     programs.git = {
         enable = true;
 
-        userName = sysConfig.primaryUser.displayName;
-        userEmail = sysConfig.primaryUser.email;
+        userName = sysConfig.primaryUserInfo.displayName;
+        userEmail = sysConfig.primaryUserInfo.email;
 
         extraConfig.init.defaultBranch = "main";
 

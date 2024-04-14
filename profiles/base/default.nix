@@ -15,8 +15,8 @@
     # Basic setup for main user
     users.users.primary = {
         isNormalUser = true;
-        name = config.primaryUser.systemName;
-        description = config.primaryUser.systemName;
+        name = config.primaryUserInfo.systemName;
+        description = config.primaryUserInfo.systemName;
         hashedPassword = (import ../../private.nix).mainHashedPassword;
         extraGroups = [ "wheel" "networkmanager" "video" ];
     };
