@@ -1,9 +1,9 @@
 # User information for Sootpaws
 
 { ... }: {
-    imports = [ ../core/primaryUser.nix ];
+    imports = [ ../core/primaryUserInfo.nix ];
 
-    primaryUser = {
+    primaryUserInfo = {
         systemName = "sootpaws";
         displayName = "Sootpaws";
         email = "sootpaws@proton.me";
