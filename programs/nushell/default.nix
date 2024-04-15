@@ -18,10 +18,4 @@
             nixsh = "nix-shell --command nu";
         };
     };
-
-    # Link the scripts folder
-    xdg.configFile.nushellScripts = {
-        source = ./scripts;
-        target = "nushell/scripts";
-    };
 }
