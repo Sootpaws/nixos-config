@@ -45,7 +45,7 @@
     };
 
     # Time zone
-    time.timeZone = "America/New_York";
+    services.localtimed.enable = true;
 
     # Internationalisation
     i18n = let locale = "en_US.UTF-8"; in {
