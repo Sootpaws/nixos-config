@@ -28,7 +28,7 @@
                 systemConfig = config;
             };
             home-manager.useGlobalPkgs = true;
-            home-manager.users.primary = import ./home;
+            home-manager.users.primary = import ../../home/base;
         }
     ];
 
