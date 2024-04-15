@@ -25,7 +25,7 @@
             modules = [
                 ./hardware/rpi.nix
                 ./system/graphical
-                ./users/sootpaws
+                ./users/sootpaws.nix
                 ./themes/sunset
             ];
         }];
