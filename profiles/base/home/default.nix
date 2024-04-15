@@ -33,6 +33,7 @@
         wget
         socat
         fzy
+        openvpn
     ];
 
     # mpv, media player
