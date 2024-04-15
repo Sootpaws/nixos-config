@@ -45,7 +45,7 @@
     };
 
     # Time zone
-    services.localtimed.enable = true;
+    services.automatic-timezoned.enable = true;
 
     # Internationalisation
     i18n = let locale = "en_US.UTF-8"; in {
