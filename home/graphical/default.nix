@@ -18,6 +18,7 @@
         gimp
         krita
         libreoffice
+        (factorio.override (import ../../private.nix).factorio)
     ];
 
     # Set screenshots directory
