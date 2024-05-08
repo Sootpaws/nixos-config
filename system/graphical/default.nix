@@ -1,6 +1,6 @@
 # General system-level configuration for running a grapical environment
 
-{ config, pkgs, extraPkgs, ... }: {
+{ config, lib, pkgs, extraPkgs, ... }: {
     # Use Home Manager for user configuration
     imports = [
         ../base
@@ -37,6 +37,11 @@
     # Enable VirtualBox
     virtualisation.virtualbox.host.enable = true;
     users.users.primary.extraGroups = [ "vboxusers" ];
+
+    # Allow some specific unfree packages
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "factorio-alpha"
+    ];
 
     # Configure audio
     security.rtkit.enable = true;
