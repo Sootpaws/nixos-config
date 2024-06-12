@@ -19,6 +19,7 @@
         krita
         libreoffice
         (factorio.override (import ../../private.nix).factorio)
+        inkscape
     ];
 
     # Set screenshots directory

@@ -23,6 +23,7 @@ bindsym $mod+o mode "open"
 mode "open" {
     bindsym a exec tor-browser, mode "default"
     bindsym f exec factorio, mode "default"
+    bindsym i exec inkscape, mode "default"
     bindsym k exec keepassxc, mode "default"
     bindsym l exec libreoffice, mode "default"
     bindsym m exec dmenu_path | dmenu | xargs swaymsg exec --, mode "default"
