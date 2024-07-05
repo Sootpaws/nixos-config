@@ -1,17 +1,12 @@
 # General system-level configuration for running a grapical environment
 
-{ config, lib, pkgs, extraPkgs, ... }: {
-    # Use Home Manager for user configuration
+{ config, lib, pkgs, ... }: {
     imports = [
         ../base
-        extraPkgs.homeManager.nixosModules.home-manager {
-            home-manager.extraSpecialArgs = {
-                sysConfig = config;
-            };
-            home-manager.useGlobalPkgs = true;
-            home-manager.users.primary = import ../../home/graphical;
-        }
     ];
+
+    # Add additional Home Manager modules
+    homeManagerModules = [ ../../home/graphical ];
 
     # Enable the Sway Wayland compositor
     programs.sway.enable = true;
