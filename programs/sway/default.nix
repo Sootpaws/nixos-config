@@ -17,7 +17,6 @@
 
     # Link the Nushell scripts for graphical environment
     programs.nushell.shellAliases = {
-        dev = "nu ~/.config/nushell/scripts/dev.nu";
         music = "nu ~/.config/nushell/scripts/music.nu";
     };
 }
