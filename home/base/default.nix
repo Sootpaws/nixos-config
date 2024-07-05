@@ -6,6 +6,7 @@
         ../../programs/starship
         ../../programs/micro
         ../../programs/git
+        ../../programs/mpd
     ];
 
     # Keep stateful data compatible with this version
