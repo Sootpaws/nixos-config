@@ -15,3 +15,7 @@ update:
 updep:
 	make update
 	make deploy
+
+hidePrivate:
+	git add --intent-to-add private.nix
+	git update-index --skip-worktree --assume-unchanged private.nix
