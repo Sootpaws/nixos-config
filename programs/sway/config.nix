@@ -31,7 +31,7 @@ mode "open" {
     bindsym t exec $term, mode "default"
     bindsym w exec librewolf, mode "default"
     bindsym v exec VirtualBox, mode "default"
-    bindsym F4 exec $term --command ncmpcpp select, mode "default"
+    bindsym F4 exec $term --command ncmpcpp, mode "default"
 
     # Return to default mode
     bindsym Return mode "default"
