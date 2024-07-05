@@ -31,7 +31,7 @@ mode "open" {
     bindsym t exec $term, mode "default"
     bindsym w exec librewolf, mode "default"
     bindsym v exec VirtualBox, mode "default"
-    bindsym F4 exec $term --command $music_script select, mode "default"
+    bindsym F4 exec $term --command ncmpcpp select, mode "default"
 
     # Return to default mode
     bindsym Return mode "default"
@@ -183,11 +183,7 @@ bindsym --locked Shift+F2 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- -l 1.2
 bindsym --locked Shift+F3 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1.2
 
 # Music control
-set $music_script nu ~/.config/nushell/scripts/music.nu
-bindsym --locked --release F4 exec $music_script pause
-bindsym --locked F4+x exec $music_script stop
-bindsym --locked F4+bracketright exec $music_script next
-bindsym --locked F4+bracketleft exec $music_script prev
+bindsym --locked --release F4 exec mpc toggle
 
 # Backlight control
 bindsym --locked F6 exec brillo -U 5
