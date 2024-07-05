@@ -1,10 +1,14 @@
 # Shorthands for common operations
 
 deploy:
+	make prepare
 	sudo nixos-rebuild switch --flake . || true
+	make cleanup
 
 debug:
+	make prepare
 	nixos-rebuild build --flake . --show-trace --verbose || true
+	make cleanup
 
 update:
 	nix flake update
@@ -16,6 +20,11 @@ updep:
 	make update
 	make deploy
 
-hidePrivate:
-	git add --intent-to-add private.nix
-	git update-index --skip-worktree --assume-unchanged private.nix
+# Internal build steps
+
+prepare:
+	make cleanup
+	mv .git ..git
+
+cleanup:
+	mv ..git .git || true
