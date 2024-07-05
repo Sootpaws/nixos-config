@@ -5,11 +5,9 @@
             icons = "material-nf";
             blocks = [
                 {
-                    block = "custom";
-                    command = "nu ~/.config/nushell/scripts/music.nu status";
-                    format = "{ $icon|} $text.str(max_w:25, rot_interval:0.5) ";
-                    json = true;
-                    interval = 1;
+                    block = "music";
+                    format = " $icon {$title| }";
+                    interface_name_exclude = [ "firefox.*" ];
                 }
                 {
                     block = "temperature";
