@@ -14,9 +14,4 @@
         source = systemConfig.theme.wallpaper;
         target = "sway/wallpaper.jpg";
     };
-
-    # Link the Nushell scripts for graphical environment
-    programs.nushell.shellAliases = {
-        music = "nu ~/.config/nushell/scripts/music.nu";
-    };
 }

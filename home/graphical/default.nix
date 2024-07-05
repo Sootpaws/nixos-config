@@ -25,10 +25,4 @@
     # Set screenshots directory
     home.sessionVariables.XDG_SCREENSHOTS_DIR =
         config.home.homeDirectory + "/Pictures/Screenshots";
-
-    # Link nushell scripts
-    xdg.configFile.nushellScripts = {
-        source = ./scripts;
-        target = "nushell/scripts";
-    };
 }
