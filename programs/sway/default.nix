@@ -1,17 +1,17 @@
 # Configuration for the Sway tiling Wayland compositor
 
-{ sysConfig, ... }: {
+{ systemConfig, ... }: {
     imports = [ ./i3bar-rs.nix ];
 
     # Link the Sway config file
     xdg.configFile.swayConfig = {
-        text = import ./config.nix sysConfig.theme;
+        text = import ./config.nix systemConfig.theme;
         target = "sway/config";
     };
 
     # Link the wallpaper image
     xdg.configFile.swayWallpaper = {
-        source = sysConfig.theme.wallpaper;
+        source = systemConfig.theme.wallpaper;
         target = "sway/wallpaper.jpg";
     };
 

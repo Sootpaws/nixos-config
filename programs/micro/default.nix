@@ -1,6 +1,6 @@
 # Configuration for the Micro text editor
 
-{ sysConfig, ... }: let
+{ systemConfig, ... }: let
     patchedPlugins = builtins.fetchGit {
         url = "https://github.com/humannum14916/updated-plugins.git";
         ref = "filemanager-fixes";
@@ -65,7 +65,7 @@ in {
         };
         # Color scheme
         microColorScheme = {
-            text = import ./colorScheme.nix sysConfig.theme.colors;
+            text = import ./colorScheme.nix systemConfig.theme.colors;
             target = "micro/colorschemes/systheme.micro";
         };
         # File manager plugin

@@ -1,6 +1,6 @@
 # Home Manager configuration for the primary user
 
-{ lib, sysConfig, pkgs, settings, ... }: {
+{ lib, systemConfig, pkgs, settings, ... }: {
     imports = [
         ../../programs/nushell
         ../../programs/starship
@@ -14,8 +14,8 @@
     programs.home-manager.enable = true;
 
     # General info
-    home.username = sysConfig.primaryUserInfo.systemName;
-    home.homeDirectory = "/home/" + sysConfig.primaryUserInfo.systemName;
+    home.username = systemConfig.primaryUserInfo.systemName;
+    home.homeDirectory = "/home/" + systemConfig.primaryUserInfo.systemName;
 
     # Have Home Manager manage XDG directories
     xdg.enable = true;
