@@ -9,9 +9,6 @@
 
         extraConfig.init.defaultBranch = "main";
 
-        # Enable Git Large File Storage
-        lfs.enable = true;
-
         # Enable the Delta diff highlighter
         delta = {
             enable = true;
