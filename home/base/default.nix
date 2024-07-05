@@ -19,7 +19,10 @@
     home.homeDirectory = "/home/" + systemConfig.primaryUserInfo.systemName;
 
     # Have Home Manager manage XDG directories
-    xdg.enable = true;
+    xdg = {
+        enable = true;
+        userDirs.enable = true;
+    };
 
     # Enable fontconfig
     fonts.fontconfig.enable = true;
