@@ -6,7 +6,7 @@
             blocks = [
                 {
                     block = "music";
-                    format = " $icon {$title| }";
+                    format = " $icon $combo ";
                     interface_name_exclude = [ "firefox.*" ];
                 }
                 {
