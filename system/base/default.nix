@@ -1,9 +1,14 @@
 # General system-level configuration
 
 { lib, config, pkgs, extraPkgs, hostName, ... }: {
-    options.homeManagerModules = lib.mkOption {
-        type = lib.types.listOf lib.types.path;
-        default = [];
+    options = {
+        homeManagerModules = lib.mkOption {
+            type = lib.types.listOf lib.types.path;
+            default = [];
+        };
+        loginCommand = lib.mkOption {
+            type = lib.types.str;
+        };
     };
 
     # Use Home Manager for user configuration
@@ -26,6 +31,18 @@
         nix.gc.automatic = true;
         nix.gc.dates = "weekly";
         nix.gc.options = "--delete-older-than 30d";
+
+        # Use greetd for login
+        services.greetd = {
+            enable = true;
+            settings = rec {
+                initial_session = {
+                    command = config.loginCommand;
+                    user = config.primaryUserInfo.systemName;
+                };
+                default_session = initial_session;
+            };
+        };
 
         # Force users and groups to be consistant with this configuration
         users.mutableUsers = false;

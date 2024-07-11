@@ -10,18 +10,7 @@
 
     # Enable the Sway Wayland compositor
     programs.sway.enable = true;
-
-    # Use greetd for login
-    services.greetd = {
-        enable = true;
-        settings = rec {
-            initial_session = {
-                command = "${pkgs.sway}/bin/sway";
-                user = config.primaryUserInfo.systemName;
-            };
-            default_session = initial_session;
-        };
-    };
+    loginCommand = "sway";
 
     # Enable XWayland to allow running X11 programs
     programs.xwayland.enable = true;
