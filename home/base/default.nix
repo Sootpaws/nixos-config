@@ -31,12 +31,10 @@
     home.packages = with pkgs; [
         bacon
         du-dust
-        comma
         zip
         unzip
         wget
         socat
-        fzy
         openvpn
     ];
 
