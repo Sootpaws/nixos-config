@@ -10,6 +10,13 @@ debug:
 	nixos-rebuild build --flake . --show-trace --verbose || true
 	make cleanup
 
+test:
+	make prepare
+	nixos-rebuild build-vm --flake .#testvm && ./result/bin/run-* || true
+	rm result || true
+	rm testvm.qcow2 || true
+	make cleanup
+
 update:
 	nix flake update
 	git restore --staged .
