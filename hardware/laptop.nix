@@ -2,7 +2,7 @@
 
 { ... }: {
     # Keep any system-level state compatible with this version
-    system.stateVersion = "23.05";
+    system.stateVersion = "24.05";
 
     # System architecture
     nixpkgs.hostPlatform = "x86_64-linux";
@@ -33,28 +33,22 @@
     # File systems
     fileSystems = {
         "/" = {
-            device = "/dev/disk/by-uuid/b7c36a66-4328-4399-a553-18119503dc4d";
+            device = "/dev/disk/by-uuid/39b9dbde-ece8-4b50-b768-93ed7b09ff13";
             fsType = "ext4";
         };
         "/boot" = {
-            device = "/dev/disk/by-uuid/4D4B-8BB5";
+            device = "/dev/disk/by-uuid/41BA-73F8";
             fsType = "vfat";
+            options = [ "fmask=0022" "dmask=0022" ];
         };
     };
 
-    boot.initrd.luks.devices."luks-f0d99b6b-6090-4961-9a90-c0cf498ba3d5".device
-        = "/dev/disk/by-uuid/f0d99b6b-6090-4961-9a90-c0cf498ba3d5";
+    boot.initrd.luks.devices."luks-26f925e6-7942-4e9a-a440-9a483bedf325".device
+        = "/dev/disk/by-uuid/26f925e6-7942-4e9a-a440-9a483bedf325";
+    boot.initrd.luks.devices."luks-758de6ab-e41d-4285-b655-dbac5d5e4b84".device
+        = "/dev/disk/by-uuid/758de6ab-e41d-4285-b655-dbac5d5e4b84";
 
     swapDevices = [
-        { device = "/dev/disk/by-uuid/5fc27595-2b93-4421-96f9-ca104ce5319e"; }
+        { device = "/dev/disk/by-uuid/eba66b4b-37eb-4d03-ac00-18fda6ebb9c5"; }
     ];
-
-    # Setup keyfile
-    boot.initrd.secrets = {
-        "/crypto_keyfile.bin" = null;
-    };
-
-    # Enable swap on luks
-    boot.initrd.luks.devices."luks-ed27c180-2add-4ffe-98d0-4a93d6c89013".device = "/dev/disk/by-uuid/ed27c180-2add-4ffe-98d0-4a93d6c89013";
-    boot.initrd.luks.devices."luks-ed27c180-2add-4ffe-98d0-4a93d6c89013".keyFile = "/crypto_keyfile.bin";
 }
