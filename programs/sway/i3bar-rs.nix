@@ -8,6 +8,10 @@
                     block = "music";
                     format = " $icon $combo ";
                     interface_name_exclude = [ "firefox.*" ];
+                    click = [{
+                        button = "left";
+                        cmd = "alacritty --command ncmpcpp";
+                    }];
                 }
                 {
                     block = "temperature";
