@@ -38,7 +38,7 @@
                 {
                     block = "net";
                     format = lib.concatStrings [
-                        " $icon  $signal_strength "
+                        " $icon  {$signal_strength |}"
                         "$speed_up.eng(prefix:K)^icon_net_up "
                         "$speed_down.eng(prefix:K)^icon_net_down "
                     ];
