@@ -3,6 +3,7 @@
 { pkgs, config, ... }: {
     imports = [
         ../../programs/cool-retro-term
+        ../../programs/zellij
     ];
 
     # Install-only packages
