@@ -14,9 +14,6 @@
     # Use Home Manager for user configuration
     imports = [
         extraPkgs.homeManager.nixosModules.home-manager {
-            home-manager.extraSpecialArgs = {
-                systemConfig = config;
-            };
             home-manager.useGlobalPkgs = true;
             home-manager.users.primary.imports = builtins.concatLists
                 [[ ../../home/base ] config.homeManagerModules];

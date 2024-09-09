@@ -1,11 +1,11 @@
 # Configuration for the Git version control system
 
-{ systemConfig, ... }: {
+{ osConfig, ... }: {
     programs.git = {
         enable = true;
 
-        userName = systemConfig.primaryUserInfo.displayName;
-        userEmail = systemConfig.primaryUserInfo.email;
+        userName = osConfig.primaryUserInfo.displayName;
+        userEmail = osConfig.primaryUserInfo.email;
 
         extraConfig.init.defaultBranch = "main";
 
