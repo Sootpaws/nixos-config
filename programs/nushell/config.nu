@@ -159,7 +159,6 @@ $env.config = {
         shape_variable: purple
         shape_vardecl: purple
     }
-    use_grid_icons: true
     footer_mode: "25"
     float_precision: 2
     use_ansi_coloring: true
