@@ -57,6 +57,7 @@
         environment.systemPackages = with pkgs; [
             git
             gnumake
+            nix-output-monitor
         ];
 
         # Configure networking
