@@ -14,7 +14,6 @@
         librewolf
         tor-browser-bundle-bin
         keepassxc
-        helm
         gimp
         krita
         libreoffice
