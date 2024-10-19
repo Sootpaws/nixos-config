@@ -159,7 +159,7 @@ $env.config = {
         shape_variable: purple
         shape_vardecl: purple
     }
-    footer_mode: "25"
+    footer_mode: 25
     float_precision: 2
     use_ansi_coloring: true
     bracketed_paste: true
