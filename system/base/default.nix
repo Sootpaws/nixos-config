@@ -29,6 +29,9 @@
         nix.gc.dates = "weekly";
         nix.gc.options = "--delete-older-than 30d";
 
+        # Enable automatic nix store optimization
+        nix.optimise.automatic = true;
+
         # Use greetd for login
         services.greetd = {
             enable = true;
