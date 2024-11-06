@@ -1,6 +1,8 @@
 # Configuration for the Nu shell
 
 { ... }: {
+    home.sessionVariables.SHELL = "nu";
+
     programs.nushell = {
         # Actually enable Nu
         enable = true;
