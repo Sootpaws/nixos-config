@@ -6,7 +6,7 @@
 
         settings = {
             # Functional
-            shell = { program = "nu"; };
+            terminal.shell = "nu";
             # Visual
             window.opacity = 0.5;
             font = { normal = { family = osConfig.theme.font; }; };
