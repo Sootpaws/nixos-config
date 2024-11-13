@@ -53,7 +53,7 @@
             name = config.primaryUserInfo.systemName;
             description = config.primaryUserInfo.systemName;
             hashedPassword = (import ../../private.nix).mainHashedPassword;
-            extraGroups = [ "wheel" "networkmanager" "video" ];
+            extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
         };
 
         # Basic packages for managing configuration
@@ -71,6 +71,13 @@
 
         # Time zone
         services.automatic-timezoned.enable = true;
+
+        # Podman
+        virtualisation.podman = {
+            enable = true;
+            dockerCompat = true;
+            defaultNetwork.settings.dns_enabled = true;
+        };
 
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
