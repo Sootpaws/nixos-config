@@ -18,6 +18,9 @@
 
             nixdev = "nix develop --command nu";
             nixsh = "nix-shell --command nu";
+
+            dev = "zellij --layout dev";
+            devrs = "zellij --layout devrs";
         };
     };
 }

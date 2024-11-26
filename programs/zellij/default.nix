@@ -40,4 +40,9 @@ in {
             };
         };
     };
+    xdg.configFile.zellijLayouts = {
+        source = ./layouts;
+        recursive = true;
+        target = "zellij/layouts";
+    };
 }

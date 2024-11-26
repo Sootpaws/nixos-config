@@ -1,0 +1,13 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane command="micro" focus=true
+        pane split_direction="horizontal" {
+            pane command="bacon"
+            pane
+            pane command="gitui"
+        }
+    }
+}
