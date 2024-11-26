@@ -14,5 +14,5 @@
     ];
 
     # Launch cool-retro-term on login
-    loginCommand = "cage cool-retro-term -- --fullscreen -e nu";
+    loginCommand = "cage cool-retro-term -- --fullscreen -e zellij";
 }
