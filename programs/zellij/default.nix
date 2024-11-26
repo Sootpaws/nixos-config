@@ -29,6 +29,7 @@ in {
         settings = {
             ui.pane_frames.hide_session_name = true;
             default_shell = config.home.sessionVariables.SHELL;
+            session_serialization = false;
             keybinds = {
                 _props = { clear-defaults = true; };
                 normal = formatBinds keybinds.normal // {
