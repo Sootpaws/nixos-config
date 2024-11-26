@@ -6,7 +6,7 @@
 
         settings = {
             # Functional
-            terminal.shell = "nu";
+            terminal.shell = "zellij";
             # Visual
             window.opacity = 0.5;
             font = { normal = { family = osConfig.theme.font; }; };
