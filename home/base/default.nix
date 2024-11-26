@@ -2,6 +2,7 @@
 
 { lib, osConfig, pkgs, settings, ... }: {
     imports = [
+        ../../programs/zellij
         ../../programs/nushell
         ../../programs/starship
         ../../programs/micro
