@@ -1,10 +1,12 @@
 { pkgs, ... }: let
-    # Use common windowing keybinds on Alt
-    keybinds = import ../../common/windowing.nix { modifier = [ "Alt" ]; };
+    modifier = [ "Alt" ];
+    # Use common windowing keybinds
+    keybinds = import ../../common/windowing.nix { inherit modifier; };
+    bindName = keys: "bind \"${ (toString keys) }\"";
     formatBinds = bindings: builtins.listToAttrs (map (binding: with binding; {
-        name = "bind \"${ toString (map (key:
+        name = bindName (map (key:
                 if key == "Escape" then "Esc" else key
-            ) keys) }\"";
+            ) keys);
         value = {
             moveFocus = { MoveFocus = action.direction; };
             moveWindow = { MovePane = action.direction; };
@@ -27,7 +29,10 @@ in {
         settings = {
             keybinds = {
                 _props = { clear-defaults = true; };
-                normal = formatBinds keybinds.normal;
+                normal = formatBinds keybinds.normal // {
+                    ${bindName (modifier ++ [ "o" ])} = { NewPane = []; };
+                    ${bindName (modifier ++ [ "t" ])} = { NewTab = []; };
+                };
                 resize = formatBinds keybinds.resize;
             };
         };
