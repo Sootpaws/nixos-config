@@ -1,4 +1,4 @@
-{ pkgs, ... }: let
+{ pkgs, config, ... }: let
     modifier = [ "Alt" ];
     # Use common windowing keybinds
     keybinds = import ../../common/windowing.nix { inherit modifier; };
@@ -28,6 +28,7 @@ in {
         enable = true;
         settings = {
             ui.pane_frames.hide_session_name = true;
+            default_shell = config.home.sessionVariables.SHELL;
             keybinds = {
                 _props = { clear-defaults = true; };
                 normal = formatBinds keybinds.normal // {
