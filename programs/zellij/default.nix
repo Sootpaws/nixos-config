@@ -27,6 +27,7 @@ in {
     programs.zellij = {
         enable = true;
         settings = {
+            ui.pane_frames.hide_session_name = true;
             keybinds = {
                 _props = { clear-defaults = true; };
                 normal = formatBinds keybinds.normal // {
