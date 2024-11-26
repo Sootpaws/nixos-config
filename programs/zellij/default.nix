@@ -13,7 +13,7 @@
             moveFocusTab = { GoToTab = action.tab; };
             moveWindowTab = { }; # TODO
             fullscreen = { ToggleFocusFullscreen = []; };
-            killFocused = { CloseTab = []; };
+            killFocused = { CloseFocus = []; };
             mode = { SwitchToMode = action.mode; };
             resize = { Resize = {
                 "grow width" = "Right";
