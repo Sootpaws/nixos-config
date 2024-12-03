@@ -9,7 +9,7 @@
             terminal.shell = "zellij";
             # Visual
             window.opacity = 0.5;
-            font = { normal = { family = osConfig.theme.font; }; };
+            font = { normal = { family = osConfig.theme.font.name; }; };
             colors = {
                 primary = {
                     foreground = osConfig.theme.colors.secondary.strong;

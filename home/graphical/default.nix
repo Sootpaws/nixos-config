@@ -1,6 +1,6 @@
 # Home Manager configuration for graphical environments
 
-{ pkgs, config, ... }: {
+{ pkgs, config, osConfig, ... }: {
     imports = [
         ../../programs/sway
         ../../programs/alacritty
@@ -8,7 +8,7 @@
 
     # Install-only packages
     home.packages = with pkgs; [
-        nerdfonts
+        (osConfig.theme.font.package pkgs)
         shotman
         pavucontrol
         librewolf

@@ -6,7 +6,10 @@
     options.theme = {
         wallpaper = lib.mkOption { type = lib.types.path; };
 
-        font = lib.mkOption { type = lib.types.str; };
+        font = {
+            package = lib.mkOption { type = lib.types.anything; };
+            name = lib.mkOption { type = lib.types.str; };
+        };
 
         colors = {
             primary = {

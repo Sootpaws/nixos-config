@@ -6,7 +6,10 @@
     theme = {
         wallpaper = ./wallpaper.jpg;
 
-        font = "FiraMonoNerdFont";
+        font = {
+            package = pkgs: pkgs.fira-mono;
+            name = "FiraMonoNerdFont";
+        };
 
         colors = {
             primary = {

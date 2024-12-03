@@ -214,7 +214,7 @@ default_border pixel
 output * bg ~/.config/sway/wallpaper.jpg fill
 
 # Font
-font pango:${theme.font} 11
+font pango:${theme.font.name} 11
 
 # Colors
 client.focused \
@@ -257,7 +257,7 @@ input "type:touchpad" {
 
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    font pango:${theme.font} 10
+    font pango:${theme.font.name} 10
     position top
     status_command i3status-rs ~/.config/i3status-rust/config-default.toml
     colors {
