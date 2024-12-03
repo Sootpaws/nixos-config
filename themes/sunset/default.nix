@@ -7,7 +7,7 @@
         wallpaper = ./wallpaper.jpg;
 
         font = {
-            package = pkgs: pkgs.fira-mono;
+            package = pkgs: pkgs.nerd-fonts.fira-mono;
             name = "FiraMonoNerdFont";
         };
 
