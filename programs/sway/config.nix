@@ -192,7 +192,7 @@ bindsym --locked Shift+F6 exec brillo -U 1
 bindsym --locked Shift+F7 exec brillo -A 1
 
 # Screenshot
-bindsym F10 exec shotman --capture region
+bindsym F10 exec "XDG_SCREENSHOTS_DIR=~/Pictures/Screenshots shotman --capture region"
 
 # Passthrough
 bindsym $mod+Shift+p mode "passthrough"
