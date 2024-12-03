@@ -1,5 +1,5 @@
 { pkgs, config, ... }: let
-    modifier = [ "Alt" ];
+    modifier = [ "Super" "Ctrl" ];
     # Use common windowing keybinds
     keybinds = import ../../common/windowing.nix { inherit modifier; };
     bindName = keys: "bind \"${ (toString keys) }\"";
