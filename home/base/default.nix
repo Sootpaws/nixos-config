@@ -37,6 +37,7 @@
         wget
         socat
         openvpn
+        htop
     ];
 
     # mpv, media player

@@ -15,6 +15,10 @@
                 }
                 {
                     block = "temperature";
+                    click = [{
+                        button = "left";
+                        cmd = "alacritty --command htop --tree --sort-key=PERCENT_CPU";
+                    }];
                     interval = 1;
                 }
                 {
@@ -23,6 +27,10 @@
                         " $icon $utilization $barchart "
                         "$frequency.eng(w:3) avg, $max_frequency.eng(w:3) max "
                     ];
+                    click = [{
+                        button = "left";
+                        cmd = "alacritty --command htop --sort-key=PERCENT_NORM_CPU";
+                    }];
                     interval = 1;
                 }
                 {
@@ -37,6 +45,10 @@
                         "$swap_total.eng(prefix:M)"
                         "($swap_used_percents.eng(w:2)) "
                     ];
+                    click = [{
+                        button = "left";
+                        cmd = "alacritty --command htop --sort-key=PERCENT_MEM";
+                    }];
                     interval = 1;
                 }
                 {
