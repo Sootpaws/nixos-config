@@ -3,7 +3,7 @@
         nixpkgs.lib.nixosSystem {
             specialArgs = {
                 inherit hostName;
-                extraPkgs = { inherit homeManager; };
+                extraPkgs = { inherit homeManager nixpkgs; };
             };
             inherit modules;
         };
