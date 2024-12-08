@@ -241,6 +241,7 @@ client.urgent \
 input "type:keyboard" {
     repeat_delay 250
     repeat_rate 25
+    xkb_options compose:ralt
 }
 
 input "type:touchpad" {
