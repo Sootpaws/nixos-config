@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }: {
     options = {
         programs.zellij.config.modifier = lib.mkOption {
-            type = lib.types.listOf lib.types.string;
+            type = lib.types.listOf lib.types.str;
             default = [ "Super" "Ctrl" ];
         };
     };
