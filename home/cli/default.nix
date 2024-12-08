@@ -9,4 +9,6 @@
     home.packages = with pkgs; [
         nerdfonts
     ];
+
+    programs.zellig.config.modifier = [ "Super" ];
 }
