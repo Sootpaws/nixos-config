@@ -24,7 +24,7 @@
 
     # Allow some specific unfree packages
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "factorio-alpha"
+        "factorio-space-age"
     ];
 
     # Configure audio

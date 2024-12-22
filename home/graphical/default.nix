@@ -17,7 +17,7 @@
         gimp
         krita
         libreoffice
-        (factorio.override (import ../../private.nix).factorio)
+        (factorio-space-age.override (import ../../private.nix).factorio)
         inkscape
     ];
 }
