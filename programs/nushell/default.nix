@@ -15,6 +15,7 @@
             ll = "ls -l";
             la = "ls -a";
             lla = "ls -la";
+            mpt = "mpv --vo=tct";
 
             nixdev = "nix develop --command nu";
             nixsh = "nix-shell --command nu";
