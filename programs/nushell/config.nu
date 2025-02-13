@@ -72,8 +72,7 @@ $env.config = {
         }
     }
     filesize: {
-        metric: true
-        format: "auto"
+        unit: "metric"
     }
     cursor_shape: {
         emacs: block
