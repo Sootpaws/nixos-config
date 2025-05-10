@@ -42,6 +42,8 @@
                     _props = { clear-defaults = true; };
                     normal = formatBinds keybinds.normal // {
                         ${bindName (modifier ++ [ "o" ])} = { NewPane = []; };
+                        ${bindName (modifier ++ [ "p" ])} = { NewPane = "Right"; };
+                        ${bindName (modifier ++ [ "l" ])} = { NewPane = "Down"; };
                         ${bindName (modifier ++ [ "t" ])} = { NewTab = []; };
                     };
                     resize = formatBinds keybinds.resize;
