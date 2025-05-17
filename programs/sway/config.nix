@@ -28,6 +28,7 @@ mode "open" {
     bindsym l exec libreoffice, mode "default"
     bindsym m exec dmenu_path | dmenu | xargs swaymsg exec --, mode "default"
     bindsym r exec krita, mode "default"
+    bindsym s exec signal-desktop, mode "default"
     bindsym t exec $term, mode "default"
     bindsym w exec librewolf, mode "default"
     bindsym v exec VirtualBox, mode "default"

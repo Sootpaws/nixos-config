@@ -13,6 +13,7 @@
         pavucontrol
         librewolf
         tor-browser-bundle-bin
+        signal-desktop
         keepassxc
         gimp
         krita
