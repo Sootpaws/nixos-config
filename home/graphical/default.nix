@@ -4,6 +4,7 @@
     imports = [
         ../../programs/sway
         ../../programs/alacritty
+        ../../programs/librewolf
     ];
 
     # Install-only packages
@@ -11,7 +12,6 @@
         (osConfig.theme.font.package pkgs)
         shotman
         pavucontrol
-        librewolf
         tor-browser-bundle-bin
         signal-desktop
         keepassxc
