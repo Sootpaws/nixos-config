@@ -10,11 +10,17 @@ in {
     programs.librewolf = {
         enable = true;
         profiles.default = {
-            # TODO: policies
-            # TODO: extensions
+            # TODO: extensions - ublock, canvasblocker
             # TODO: search
-            # TODO: settings
-            settings."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            settings = {
+                "browser.tabs.hoverPreview.enabled" = false;
+                "browser.startup.homepage" = "chrome://browser/content/blanktab.html";
+                "browser.newtabpage.enabled" = false;
+                "extensions.update.enabled" = false;
+                "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+                "webgl.disabled" = false;
+                "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            };
             userContent = builtins.readFile ./captcha.css;
         };
     };
