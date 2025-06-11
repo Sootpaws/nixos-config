@@ -1,4 +1,6 @@
 /* https://beeps.website/blog/2023-04-27-otherkin-friendly-captchas-revisited/ */
+/* Plus some modifications to fix Cloudflare Turnstile */
+
 /* Or foxes! */
 
 /**
@@ -17,7 +19,7 @@
 
 /* 1 */ #recaptcha-anchor-label,
 /* 2 */ body > div#anchor > div.label-container > label-td > label-tc > div#label,
-/* 3 */ div#content div#challenge-stage div.cb-c label.cb-lb span.cb-lb-t,
+/* 3 */ div#content div.cb-c > label.cb-lb > span.cb-lb-t,
 /* 4 */ #root > .box > .box > p[data-theme="home.instructions"],
 /* 5 */ .text:is([data-loc="t_ready"], [data-loc="t_completed"]),
 /* 6 */ label[for="altcha_checkbox"] {
@@ -27,7 +29,7 @@
 
 /* 1 */ #recaptcha-anchor-label::before,
 /* 2 */ body > div#anchor > div.label-container > label-td > label-tc > div#label::before,
-/* 3 */ div#content div#challenge-stage div.cb-c label.cb-lb span.cb-lb-t::before,
+/* 3 */ div#content div.cb-c > label.cb-lb > span.cb-lb-t::before,
 /* 4 */ #root > .box > .box > p[data-theme="home.instructions"]::before,
 /* 5 */ .text:is([data-loc="t_ready"], [data-loc="t_completed"])::before,
 /* 6 */ label[for="altcha_checkbox"]::before {
@@ -37,7 +39,7 @@
 
 /* 1 */ #recaptcha-anchor-label::before,
 /* 2 */ body > div#anchor > div.label-container > label-td > label-tc > div#label::before,
-/* 3 */ div#content div#challenge-stage div.cb-c label.cb-lb span.cb-lb-t::before,
+/* 3 */ div#content div.cb-c > label.cb-lb > span.cb-lb-t::before,
 /* 5 */ .text[data-loc="t_ready"]::before,
 /* 6 */ label[for="altcha_checkbox"]::before {
   /* Message that usually appears next to a challenge. */
