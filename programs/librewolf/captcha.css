@@ -1,10 +1,9 @@
 /* https://beeps.website/blog/2023-04-27-otherkin-friendly-captchas-revisited/ */
 /* Plus some modifications to fix Cloudflare Turnstile */
-
-/* Or foxes! */
+/* And add support for full-page Cloudflare challenges */
 
 /**
- * Override the text of CAPTCHAs. Don't be rude to robots.
+ * Override the text of CAPTCHAs. Don't be rude to robots. Or foxes!
  * Originally by mavica: https://maple.pet/
  * Updated by beeps: https://beeps.website/
  *
@@ -15,6 +14,7 @@
  * (4) Microsoft CAPTCHA
  * (5) Friendly Captcha
  * (6) ALTCHA
+ * (7) Cloudflare (full page)
  */
 
 /* 1 */ #recaptcha-anchor-label,
@@ -22,9 +22,10 @@
 /* 3 */ div#content div.cb-c > label.cb-lb > span.cb-lb-t,
 /* 4 */ #root > .box > .box > p[data-theme="home.instructions"],
 /* 5 */ .text:is([data-loc="t_ready"], [data-loc="t_completed"]),
-/* 6 */ label[for="altcha_checkbox"] {
-  font-size: 0 !important;
-  line-height: 0 !important;
+/* 6 */ label[for="altcha_checkbox"],
+/* 7 */ body > div.main-wrapper > div.main-content > p.h2 {
+    font-size: 0 !important;
+    line-height: 0 !important;
 }
 
 /* 1 */ #recaptcha-anchor-label::before,
@@ -33,8 +34,18 @@
 /* 4 */ #root > .box > .box > p[data-theme="home.instructions"]::before,
 /* 5 */ .text:is([data-loc="t_ready"], [data-loc="t_completed"])::before,
 /* 6 */ label[for="altcha_checkbox"]::before {
-  font-size: 14px;
-  line-height: 1.2;
+    font-size: 14px;
+    line-height: 1.2;
+}
+/* 7 */ body > div.main-wrapper > div.main-content > p.h2::before {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.25rem;
+}
+
+/* 7 */ body > div.main-wrapper > div.main-content > p.h2::before {
+    /* Message above full-page challenge */
+    content: "Verify you are a fox by completing the action below.";
 }
 
 /* 1 */ #recaptcha-anchor-label::before,
@@ -42,16 +53,16 @@
 /* 3 */ div#content div.cb-c > label.cb-lb > span.cb-lb-t::before,
 /* 5 */ .text[data-loc="t_ready"]::before,
 /* 6 */ label[for="altcha_checkbox"]::before {
-  /* Message that usually appears next to a challenge. */
-  content: "I'm a fox";
+    /* Message that usually appears next to a challenge. */
+    content: "I'm a fox";
 }
 
 /* 4 */ #root > .box > .box > p[data-theme="home.instructions"]::before {
-  /* Message that usually appears before a challenge. */
-  content: "Prove you are a fox.";
+    /* Message that usually appears before a challenge. */
+    content: "Prove you are a fox.";
 }
 
 /* 5 */ .text[data-loc="t_completed"]::before {
-  /* Message that usually appears after completing a challenge. */
-  content: "You're a fox!";
+    /* Message that usually appears after completing a challenge. */
+    content: "You're a fox!";
  }
