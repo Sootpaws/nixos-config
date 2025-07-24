@@ -18,7 +18,7 @@
                 moveFocus = { MoveFocus = action.direction; };
                 moveWindow = { MovePane = action.direction; };
                 moveFocusTab = { GoToTab = action.tab; };
-                moveWindowTab = { }; # TODO
+                moveWindowTab = { GoToTab = action.tab; }; # TODO
                 fullscreen = { ToggleFocusFullscreen = []; };
                 killFocused = { CloseFocus = []; };
                 mode = { SwitchToMode = action.mode; };
