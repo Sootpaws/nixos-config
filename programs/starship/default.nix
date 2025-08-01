@@ -30,8 +30,8 @@
 
             format = lib.concatStrings [
                 "[           ](bg:pe)[](fg:pe bg:ps)["
-                " $username@$hostname "
-                "](bg:ps)[](fg:ps bg:pm)["
+                " $username@$hostname $sudo"
+                "](bg:ps fg:as)[](fg:ps bg:pm)["
                 "( $package$rust)"
                 "](bg:pm)[](fg:pm)$line_break"
                 "[      ](bg:as)[](fg:as bg:am)["
@@ -59,13 +59,14 @@
                 trim_at = "";
                 format = "[$ssh_symbol$hostname]($style bg:ps)";
             };
-            localip = {
-                ssh_only = false;
+            sudo = {
                 disabled = false;
-                format = "[$localipv4]($style bg:ps)";
+                format = "$symbol ";
+                symbol = " ";
             };
             package = {
                 format = "[$symbol$version]($style bg:pm) ";
+                symbol = " ";
             };
             rust = {
                 symbol = "";
@@ -73,10 +74,8 @@
             };
             directory = {
                 truncation_symbol = ".../";
-                format = lib.concatStrings [
-                    "[$path]($style bg:am)"
-                    "[$read_only]($read_only_style bg:am) "
-                ];
+                format = "[$path$read_only]($style bg:am)";
+                read_only = "  ";
             };
             nix_shell = {
                 format = "[$symbol$state(\($name\))]($style bg:am)";
