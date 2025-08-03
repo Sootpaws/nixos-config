@@ -57,7 +57,7 @@ $env.config = {
     history: {
         max_size: 100_000
         sync_on_enter: true
-        file_format: "plaintext"
+        file_format: "sqlite"
         isolation: true
     }
     completions: {
