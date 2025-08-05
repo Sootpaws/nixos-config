@@ -1,7 +1,10 @@
 # Configuration for the Sway tiling Wayland compositor
 
-{ osConfig, ... }: {
+{ osConfig, pkgs, ... }: {
     imports = [ ./i3bar-rs.nix ];
+
+    # Install dmenu for opening programs without dedicated keybinds
+    home.packages = with pkgs; [ dmenu-rs ];
 
     # Link the Sway config file
     xdg.configFile.swayConfig = {
