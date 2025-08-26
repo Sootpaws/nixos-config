@@ -87,6 +87,9 @@
             defaultNetwork.settings.dns_enabled = true;
         };
 
+        # Firmware updates
+        services.fwupd.enable = true;
+
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
             defaultLocale = locale;
