@@ -15,10 +15,11 @@
         tor-browser-bundle-bin
         signal-desktop
         keepassxc
+        libreoffice
         gimp
         krita
-        libreoffice
-        (factorio-space-age.override (import ../../private.nix).factorio)
         inkscape
+        (factorio-space-age.override (import ../../private.nix).factorio)
+        prismlauncher
     ];
 }
