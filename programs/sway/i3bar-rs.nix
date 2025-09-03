@@ -17,7 +17,7 @@
                     block = "temperature";
                     click = [{
                         button = "left";
-                        cmd = "alacritty --command htop --tree --sort-key=PERCENT_CPU";
+                        cmd = "alacritty --command btop";
                     }];
                     interval = 1;
                 }
@@ -29,7 +29,7 @@
                     ];
                     click = [{
                         button = "left";
-                        cmd = "alacritty --command htop --sort-key=PERCENT_NORM_CPU";
+                        cmd = "alacritty --command btop";
                     }];
                     interval = 1;
                 }
@@ -47,7 +47,7 @@
                     ];
                     click = [{
                         button = "left";
-                        cmd = "alacritty --command htop --sort-key=PERCENT_MEM";
+                        cmd = "alacritty --command btop";
                     }];
                     interval = 1;
                 }

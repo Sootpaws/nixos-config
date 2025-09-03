@@ -8,6 +8,7 @@
         ../../programs/micro
         ../../programs/git
         ../../programs/mpd
+        ../../programs/btop
     ];
 
     # Keep stateful data compatible with this version
@@ -37,7 +38,6 @@
         wget
         socat
         openvpn
-        htop
     ];
 
     # mpv, media player
