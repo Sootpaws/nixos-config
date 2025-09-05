@@ -90,6 +90,12 @@
         # Firmware updates
         services.fwupd.enable = true;
 
+        # Tailscale
+        services.tailscale = {
+            enable = true;
+            useRoutingFeatures = "client";
+        };
+
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
             defaultLocale = locale;
