@@ -15,6 +15,7 @@
                 }
                 {
                     block = "temperature";
+                    format = " $icon {$average avg, $max max|∅} ";
                     click = [{
                         button = "left";
                         cmd = "alacritty --command btop";
@@ -40,10 +41,12 @@
                         "$mem_total_used.eng(prefix:M)/"
                         "$mem_total.eng(prefix:M)"
                         "($mem_total_used_percents.eng(w:2)) "
-                        "+ $icon_swap "
-                        "$swap_used.eng(prefix:M)/"
-                        "$swap_total.eng(prefix:M)"
-                        "($swap_used_percents.eng(w:2)) "
+                        "{"
+                            "+ $icon_swap "
+                            "$swap_used.eng(prefix:M)/"
+                            "$swap_total.eng(prefix:M)"
+                            "($swap_used_percents.eng(w:2)) "
+                        "|}"
                     ];
                     click = [{
                         button = "left";
@@ -71,6 +74,7 @@
                     block = "backlight";
                     step_width = 1;
                     minimum = 0;
+                    missing_format = " ∅ ";
                 }
                 {
                     block = "sound";
