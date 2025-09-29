@@ -1,7 +1,7 @@
 # Basic windowing controls
 { modifier }: let
         directions = [ "Left" "Right" "Up" "Down" ];
-        tabs = builtins.genList (x: x) 9;
+        tabs = builtins.genList (x: x) 10;
         bind = keys: action: { keys = modifier ++ keys; inherit action; };
     in {
         normal =
