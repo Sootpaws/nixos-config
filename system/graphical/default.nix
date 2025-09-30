@@ -9,7 +9,6 @@
     homeManagerModules = [ ../../home/graphical ];
 
     # Enable the Sway Wayland compositor
-    programs.sway.enable = true;
     loginCommand = "sway";
 
     # Enable XWayland to allow running X11 programs
