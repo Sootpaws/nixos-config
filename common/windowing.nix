@@ -2,7 +2,8 @@
 { modifier }: let
         directions = [ "Left" "Right" "Up" "Down" ];
         tabs = builtins.genList (x: x) 10;
-        bind = keys: action: { keys = modifier ++ keys; inherit action; };
+        bindNoMod = keys: action: { inherit keys action; };
+        bind = keys: action: bindNoMod (modifier ++ keys) action;
     in {
         normal =
             # Move focus
@@ -30,10 +31,10 @@
                 (bind [ "r" ] { type = "mode"; mode = "resize"; })
             ];
         resize = [
-            (bind [ "Left" ] { type = "resize"; axis = "width"; direction = "grow"; })
-            (bind [ "Right" ] { type = "resize"; axis = "width"; direction = "shrink"; })
-            (bind [ "Up" ] { type = "resize"; axis = "height"; direction = "shrink"; })
-            (bind [ "Down" ] { type = "resize"; axis = "height"; direction = "grow"; })
-            (bind [ "Escape" ] { type = "mode"; mode = "normal"; })
+            (bindNoMod [ "Left" ] { type = "resize"; axis = "width"; direction = "grow"; })
+            (bindNoMod [ "Right" ] { type = "resize"; axis = "width"; direction = "shrink"; })
+            (bindNoMod [ "Up" ] { type = "resize"; axis = "height"; direction = "shrink"; })
+            (bindNoMod [ "Down" ] { type = "resize"; axis = "height"; direction = "grow"; })
+            (bindNoMod [ "Escape" ] { type = "mode"; mode = "normal"; })
         ];
     }
