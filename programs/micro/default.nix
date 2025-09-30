@@ -1,12 +1,14 @@
 # Configuration for the Micro text editor
 
-{ osConfig, ... }: let
+{ osConfig, pkgs, ... }: let
     patchedPlugins = builtins.fetchGit {
         url = "https://github.com/humannum14916/updated-plugins.git";
         ref = "filemanager-fixes";
         rev = "7c183117ef6546ef39a8891f2d1cbac7a6ed42ab";
     };
 in {
+    # Install wl-clipboard for clipboard access
+    home.packages = with pkgs; [ wl-clipboard ];
     # Set Micro as the main editor
     home.sessionVariables.EDITOR = "micro";
     # Enable true-color
@@ -16,8 +18,8 @@ in {
         # Actually enable Micro
         enable = true;
         settings = {
-            # Use the terminal emulator for clipboard
-            clipboard = "terminal";
+            # Use the system clipboard
+            clipboard = "external";
             # Highlight column 80
             colorcolumn = 80;
             # Set the color scheme
