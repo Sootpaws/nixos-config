@@ -30,7 +30,7 @@
         enable = true;
         checkConfig = false; # TODO: fix wallpaper causing failure
         config = {
-            modifier = "Mod1";
+            modifier = "Mod4";
 
             keybindings = formatBinds keybinds.normal // {
                 ${ bindName (modifier ++ [ "Shift" "c" ]) } = "reload";
@@ -114,7 +114,7 @@
             bars = [{
                 fonts = {
                     names = [ theme.font.name ];
-                    size = 11.0;
+                    size = 10.0;
                 };
                 position = "top";
                 statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
