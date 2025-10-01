@@ -21,6 +21,7 @@
             nixsh = "nix-shell --command nu";
 
             dev = "zellij --layout dev";
+            devrq = "zellij --layout devrq";
             devrs = "zellij --layout devrs";
         };
     };
