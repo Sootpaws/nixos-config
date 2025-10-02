@@ -3,12 +3,13 @@ layout {
         plugin location="zellij:tab-bar"
     }
     pane split_direction="vertical" {
-        pane command="micro" focus=true
+        pane {
+            command "direnv"
+            args "exec" "." "micro"
+            focus true
+        }
         pane split_direction="horizontal" {
-            pane {
-                command "nix"
-                args "develop" "--command" "nu"
-            }
+            pane command="nu"
             pane command="gitui"
         }
     }

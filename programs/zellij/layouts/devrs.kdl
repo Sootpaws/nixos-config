@@ -5,14 +5,8 @@ layout {
     pane split_direction="vertical" {
         pane command="micro" focus=true
         pane split_direction="horizontal" {
-            pane {
-                command "nix"
-                args "develop" "--command" "bacon"
-            }
-            pane {
-                command "nix"
-                args "develop" "--command" "nu"
-            }
+            pane command="bacon"
+            pane command="nu"
             pane command="gitui"
         }
     }
