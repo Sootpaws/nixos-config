@@ -5,6 +5,7 @@
         ../../programs/zellij
         ../../programs/nushell
         ../../programs/starship
+        ../../programs/direnv
         ../../programs/micro
         ../../programs/git
         ../../programs/mpd
