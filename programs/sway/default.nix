@@ -3,10 +3,14 @@
 { osConfig, pkgs, lib, config, ... }: {
     imports = [ ./i3bar-rs.nix ];
 
-    # Install dmenu for opening programs without dedicated keybinds
-    home.packages = with pkgs; [ dmenu-rs ];
+    # Open-mode bindings
+    options.wayland.windowManager.sway.customConfig.openKeybinds =
+        lib.mkOption { type = lib.types.attrsOf lib.types.str; };
 
-    wayland.windowManager.sway = let
+    # Install dmenu for opening programs without dedicated keybinds
+    config.home.packages = with pkgs; [ dmenu-rs ];
+
+    config.wayland.windowManager.sway = let
         resize_step = "10px";
         theme = osConfig.theme;
         # Use common windowing keybinds
@@ -29,6 +33,10 @@
     in {
         enable = true;
         checkConfig = false; # TODO: fix wallpaper causing failure
+        customConfig.openKeybinds = {
+            m = "dmenu_path | dmenu | xargs swaymsg exec --";
+            n = "echo nixpkgs#`echo nixpkgs | dmenu` | xargs swaymsg exec -- nix run";
+        };
         config = {
             modifier = "Mod4";
 
@@ -62,22 +70,10 @@
             };
             modes = {
                 resize = formatBinds keybinds.resize;
-                open = {
-                    a = "exec tor-browser, mode \"default\"";
-                    f = "exec factorio, mode \"default\"";
-                    i = "exec inkscape, mode \"default\"";
-                    k = "exec keepassxc, mode \"default\"";
-                    l = "exec libreoffice, mode \"default\"";
-                    m = "exec dmenu_path | dmenu | xargs swaymsg exec --, mode \"default\"";
-                    n = "echo nixpkgs#`echo nixpkgs | dmenu` | xargs swaymsg exec -- nix run, mode \"default\"";
-                    p = "exec prismlauncher, mode \"default\"";
-                    r = "exec krita, mode \"default\"";
-                    s = "exec signal-desktop, mode \"default\"";
-                    t = "exec alacritty, mode \"default\"";
-                    w = "exec librewolf, mode \"default\"";
-                    v = "exec VirtualBox, mode \"default\"";
-                    Escape = "mode \"default\"";
-                };
+                open = builtins.mapAttrs
+                    (_: run: "exec ${ run }, mode \"default\"")
+                    config.wayland.windowManager.sway.customConfig.openKeybinds
+                    // { Escape = "mode \"default\""; };
                 monitor = builtins.listToAttrs (builtins.genList (i: {
                     name = toString i;
                     value = "output - scale 1.${ toString i }";
@@ -168,7 +164,7 @@
     };
 
     # Link the wallpaper image
-    xdg.configFile.swayWallpaper = {
+    config.xdg.configFile.swayWallpaper = {
         source = osConfig.theme.wallpaper;
         target = "sway/wallpaper.jpg";
     };

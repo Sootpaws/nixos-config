@@ -22,4 +22,13 @@
         (factorio-space-age.override (import ../../private.nix).factorio)
         prismlauncher
     ];
+
+    wayland.windowManager.sway.customConfig.openKeybinds = {
+        a = "tor-browser";
+        s = "signal-desktop";
+        k = "keepassxc";
+        l = "libreoffice";
+        f = "factorio";
+        p = "prismlauncher";
+    };
 }

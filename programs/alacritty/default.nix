@@ -1,13 +1,9 @@
-# Configuration for the Alacritty terminal emulator
-
 { osConfig, ... }: {
+    wayland.windowManager.sway.customConfig.openKeybinds.t = "alacritty";
     programs.alacritty = {
         enable = true;
-
         settings = {
-            # Functional
             terminal.shell = "zellij";
-            # Visual
             window.opacity = 0.5;
             font = { normal = { family = osConfig.theme.font.name; }; };
             colors = {
