@@ -26,7 +26,9 @@
                 moveWindowTab = "move container to workspace number ${ toString action.tab }";
                 fullscreen = "fullscreen";
                 killFocused = "kill";
-                mode = "mode \"${ action.mode }\"";
+                mode = "mode \"${
+                    if action.mode == "normal" then "default" else action.mode
+                }\"";
                 resize = "resize ${ action.direction } ${ action.axis } ${ resize_step }";
             }.${action.type};
         }) bindings);
