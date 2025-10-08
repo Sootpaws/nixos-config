@@ -76,7 +76,7 @@
                     (_: run: "exec ${ run }, mode \"default\"")
                     config.wayland.windowManager.sway.customConfig.openKeybinds
                     // { Escape = "mode \"default\""; };
-                monitor = builtins.listToAttrs (builtins.genList (i: {
+                display = builtins.listToAttrs (builtins.genList (i: {
                     name = toString i;
                     value = "output - scale 1.${ toString i }";
                 }) 10) // { Escape = "mode \"default\""; };
