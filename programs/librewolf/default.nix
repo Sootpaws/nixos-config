@@ -1,10 +1,4 @@
-{ osConfig, ... }: let
-    patchedPlugins = builtins.fetchGit {
-        url = "https://github.com/humannum14916/updated-plugins.git";
-        ref = "filemanager-fixes";
-        rev = "7c183117ef6546ef39a8891f2d1cbac7a6ed42ab";
-    };
-in {
+{ ... }: {
     wayland.windowManager.sway.customConfig.openKeybinds.w = "librewolf";
     programs.librewolf = {
         enable = true;
