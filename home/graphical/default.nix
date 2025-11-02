@@ -12,7 +12,7 @@
         (osConfig.theme.font.package pkgs)
         shotman
         pavucontrol
-        tor-browser-bundle-bin
+        tor-browser
         signal-desktop
         keepassxc
         libreoffice

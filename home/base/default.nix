@@ -33,7 +33,6 @@
     # Install-only packages
     home.packages = with pkgs; [
         bacon
-        du-dust
         zip
         unzip
         wget
