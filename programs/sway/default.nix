@@ -7,9 +7,10 @@
     options.wayland.windowManager.sway.customConfig.openKeybinds =
         lib.mkOption { type = lib.types.attrsOf lib.types.str; };
 
-    # Install dmenu for opening programs without dedicated keybinds
-    config.home.packages = with pkgs; [ dmenu-rs ];
+    # Other programs used in default config
+    config.home.packages = with pkgs; [ dmenu-rs wlrctl ];
 
+    # Main sway config
     config.wayland.windowManager.sway = let
         resize_step = "10px";
         theme = osConfig.theme;
@@ -68,6 +69,7 @@
                     "exec \"XDG_SCREENSHOTS_DIR=~/Pictures/Screenshots shotman --capture region\"";
                 ${ bindName (modifier ++ [ "o" ]) } = "mode \"open\"";
                 ${ bindName (modifier ++ [ "d" ]) } = "mode \"display\"";
+                ${ bindName (modifier ++ [ "m" ]) } = "mode \"mouse\"";
                 ${ bindName (modifier ++ [ "p" ]) } = "mode \"passthrough\"";
             };
             modes = {
@@ -80,6 +82,37 @@
                     name = toString i;
                     value = "output - scale 1.${ toString i }";
                 }) 10) // { Escape = "mode \"default\""; };
+                mouse = let
+                    ofs = [
+                        { mod = []; ofs = 20; }
+                        { mod = [ "Shift" ]; ofs = 1; }
+                    ];
+                    dirs = builtins.concatMap ({ mod, ofs }: [
+                        { binding = mod ++ [ "Up" ]; dx = 0; dy = -ofs; }
+                        { binding = mod ++ [ "Down" ]; dx = 0; dy = ofs; }
+                        { binding = mod ++ [ "Left" ]; dx = -ofs; dy = 0; }
+                        { binding = mod ++ [ "Right" ]; dx = ofs; dy = 0; }
+                    ]) ofs;
+                    moveBinds = map ({ binding, dx, dy }: {
+                        name = bindName binding;
+                        value = "exec wlrctl pointer move ${ toString dx } ${ toString dy }";
+                    }) dirs;
+                    scrollBinds = map ({ binding, dx, dy }: {
+                        name = bindName (map (k: {
+                            "Up" = "w";
+                            "Down" = "s";
+                            "Left" = "a";
+                            "Right" = "d";
+                            "Shift" = "Shift";
+                        }.${k}) binding);
+                        value = "exec wlrctl pointer scroll ${ toString dy } ${ toString dx }";
+                    }) dirs;
+                in builtins.listToAttrs moveBinds //
+                    builtins.listToAttrs scrollBinds //
+                {
+                    Return = "exec wlrctl pointer click";
+                    Escape = "mode \"default\"";
+                };
                 passthrough = {
                     ${ bindName (modifier ++ [ "p" ]) } = "mode \"default\"";
                 };
