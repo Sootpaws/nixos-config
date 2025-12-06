@@ -14,6 +14,9 @@
     # Enable XWayland to allow running X11 programs
     programs.xwayland.enable = true;
 
+    # Bluetooth
+    hardware.bluetooth.enable = true;
+
     # Enable the Brillo backlight controller
     hardware.brillo.enable = true;
 
