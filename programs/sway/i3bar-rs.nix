@@ -96,7 +96,7 @@
                 }
                 {
                     block = "time";
-                    format = " $icon $timestamp.datetime(f:'%m/%d/%Y %r') ";
+                    format = " $icon $timestamp.datetime(f:'%m/%d/%Y %H:%M:%S') ";
                     interval = 1;
                 }
             ];
