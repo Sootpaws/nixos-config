@@ -24,6 +24,9 @@
     virtualisation.virtualbox.host.enable = true;
     users.users.primary.extraGroups = [ "vboxusers" ];
 
+    # Make PAM and Swaylock cooperate
+    security.pam.services.swaylock = {};
+
     # Allow some specific unfree packages
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
         "factorio-space-age"

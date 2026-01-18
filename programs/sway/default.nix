@@ -203,4 +203,9 @@
         source = osConfig.theme.wallpaper;
         target = "sway/wallpaper.jpg";
     };
+
+    # Configure swaylock
+    config.programs.swaylock = {
+        enable = true;
+    };
 }
