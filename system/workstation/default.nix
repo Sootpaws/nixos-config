@@ -6,7 +6,7 @@
     ];
 
     # Add additional Home Manager modules
-    homeManagerModules = [ ../../home/graphical ];
+    homeManagerModules = [ ../../home/workstation ];
 
     # Enable the Sway Wayland compositor
     loginCommand = "sway";
