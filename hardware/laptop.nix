@@ -4,6 +4,9 @@
     # Keep any system-level state compatible with this version
     system.stateVersion = "24.05";
 
+    # Keep any user-level state compatible with this version
+    home-manager.users.primary.home.stateVersion = "23.05";
+
     # System architecture
     nixpkgs.hostPlatform = "x86_64-linux";
 

@@ -12,8 +12,6 @@
         ../../programs/btop
     ];
 
-    # Keep stateful data compatible with this version
-    home.stateVersion = "23.05";
     # Allow Home Manager to manage itself
     programs.home-manager.enable = true;
 
