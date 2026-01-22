@@ -11,13 +11,17 @@
         };
     };
 
-    # Use Home Manager for user configuration
     imports = [
+        # Use Home Manager for user configuration
         inputs.homeManager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.users.primary.imports = builtins.concatLists
                 [[ ./home.nix ] config.homeManagerModules];
         }
+        # Theming config
+        ../../core/theme.nix
+        # Primary user info
+        ../../core/primaryUserInfo.nix
     ];
 
     config = {

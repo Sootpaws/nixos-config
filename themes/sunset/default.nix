@@ -1,8 +1,4 @@
-# Colors and backgrounds for the Sunset theme
-
 { ... }: {
-    imports = [ ../../core/theme.nix ];
-
     theme = {
         wallpaper = ./wallpaper.jpg;
 
