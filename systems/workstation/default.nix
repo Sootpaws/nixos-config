@@ -6,13 +6,10 @@
     ];
 
     # Add additional Home Manager modules
-    homeManagerModules = [ ../../home/workstation ];
+    homeManagerModules = [ ./home.nix ];
 
-    # Enable the Sway Wayland compositor
+    # Start Sway on login
     loginCommand = "sway";
-
-    # Enable XWayland to allow running X11 programs
-    programs.xwayland.enable = true;
 
     # Bluetooth
     hardware.bluetooth.enable = true;

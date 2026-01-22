@@ -16,7 +16,7 @@
             hostName = "sootpaws-laptop-nixos";
             modules = [
                 ./hardware/laptop.nix
-                ./system/workstation
+                ./systems/workstation
                 ./users/sootpaws.nix
                 ./themes/sunset
             ];
@@ -24,7 +24,7 @@
             hostName = "sootpaws-rpi-nixos";
             modules = [
                 ./hardware/rpi.nix
-                ./system/workstation
+                ./systems/workstation
                 ./users/sootpaws.nix
                 ./themes/sunset
             ];
