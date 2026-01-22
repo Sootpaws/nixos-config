@@ -1,6 +1,6 @@
 # General system-level configuration
 
-{ lib, config, pkgs, extraPkgs, hostName, ... }: {
+{ lib, config, pkgs, inputs, hostName, ... }: {
     options = {
         homeManagerModules = lib.mkOption {
             type = lib.types.listOf lib.types.path;
@@ -13,7 +13,7 @@
 
     # Use Home Manager for user configuration
     imports = [
-        extraPkgs.homeManager.nixosModules.home-manager {
+        inputs.homeManager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.users.primary.imports = builtins.concatLists
                 [[ ./home.nix ] config.homeManagerModules];
@@ -24,11 +24,11 @@
         # Enable flakes
         nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-        # Disable channels, use the version of nixpkgs
-        # the system was built with instead
+        # Disable channels, use the version of nixpkgs  the system was built
+        # with instead
         nix.channel.enable = false;
-        nix.registry.nixpkgs.flake = extraPkgs.nixpkgs;
-        nix.nixPath = [ "nixpkgs=${extraPkgs.nixpkgs}" ];
+        nix.registry.nixpkgs.flake = inputs.nixpkgs;
+        nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
         # Enable automatic nix store cleaning
         nix.gc = {

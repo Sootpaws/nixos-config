@@ -9,7 +9,7 @@
         };
     };
 
-    outputs = inputs@{ nixpkgs, homeManager, ... }: let
+    outputs = inputs@{ nixpkgs, ... }: let
         makeSystems = import ./makeSystems.nix inputs;
     in {
         nixosConfigurations = makeSystems [{

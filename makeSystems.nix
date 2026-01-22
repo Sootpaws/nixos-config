@@ -1,10 +1,7 @@
-{ nixpkgs, homeManager, ... }: configs:
+inputs@{ nixpkgs, homeManager, ... }: configs:
     let makeSystem = { hostName, modules }:
         nixpkgs.lib.nixosSystem {
-            specialArgs = {
-                inherit hostName;
-                extraPkgs = { inherit homeManager nixpkgs; };
-            };
+            specialArgs = { inherit hostName inputs; };
             inherit modules;
         };
     in builtins.foldl' (built: config:
