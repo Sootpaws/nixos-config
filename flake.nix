@@ -10,7 +10,7 @@
     };
 
     outputs = inputs@{ nixpkgs, ... }: let
-        makeSystems = import ./makeSystems.nix inputs;
+        makeSystems = import ./core/makeSystems.nix inputs;
     in {
         nixosConfigurations = makeSystems [{
             hostName = "sootpaws-laptop-nixos";
