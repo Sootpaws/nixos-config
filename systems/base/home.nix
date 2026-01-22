@@ -12,9 +12,6 @@
         ../../programs/btop
     ];
 
-    # Allow Home Manager to manage itself
-    programs.home-manager.enable = true;
-
     # General info
     home.username = osConfig.primaryUserInfo.systemName;
     home.homeDirectory = "/home/" + osConfig.primaryUserInfo.systemName;
