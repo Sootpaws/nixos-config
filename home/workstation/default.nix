@@ -5,6 +5,7 @@
         ../../programs/sway
         ../../programs/mpd
         ../../programs/alacritty
+        ../../programs/mpv
         ../../programs/librewolf
     ];
 

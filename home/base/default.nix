@@ -8,6 +8,7 @@
         ../../programs/direnv
         ../../programs/micro
         ../../programs/git
+        ../../programs/gitui
         ../../programs/btop
     ];
 
@@ -38,14 +39,4 @@
         socat
         openvpn
     ];
-
-    # mpv, media player
-    programs.mpv = {
-        enable = true;
-    };
-
-    # GitUI, TUI Git interface
-    programs.gitui = {
-        enable = true;
-    };
 }
