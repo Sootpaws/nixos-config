@@ -64,13 +64,6 @@
             extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
         };
 
-        # Basic packages for managing configuration
-        environment.systemPackages = with pkgs; [
-            git
-            gnumake
-            nix-output-monitor
-        ];
-
         # Configure networking
         networking = {
             inherit hostName;
