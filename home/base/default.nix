@@ -8,7 +8,6 @@
         ../../programs/direnv
         ../../programs/micro
         ../../programs/git
-        ../../programs/mpd
         ../../programs/btop
     ];
 

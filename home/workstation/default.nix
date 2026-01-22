@@ -3,6 +3,7 @@
 { pkgs, config, osConfig, ... }: {
     imports = [
         ../../programs/sway
+        ../../programs/mpd
         ../../programs/alacritty
         ../../programs/librewolf
     ];
