@@ -9,6 +9,15 @@
         ../../programs/librewolf
     ];
 
+    # Have Home Manager manage XDG directories
+    xdg = {
+        enable = true;
+        userDirs.enable = true;
+    };
+
+    # Enable fontconfig
+    fonts.fontconfig.enable = true;
+
     # Install-only packages
     home.packages = with pkgs; [
         (osConfig.theme.font.package pkgs)
