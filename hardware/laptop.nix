@@ -15,6 +15,19 @@
     hardware.cpu.intel.updateMicrocode = true;
     hardware.enableRedistributableFirmware = true;
     services.thermald.enable = true;
+    hardware.nvidia = {
+        open = true;
+        prime = {
+            intelBusId = "PCI:0:2:0";
+            nvidiaBusId = "PCI:1:0:0";
+            offload = {
+                enable = true;
+                enableOffloadCmd = true;
+            };
+        };
+    };
+    services.xserver.videoDrivers = [ "nvidia" ];
+    allowedUnfree = [ "nvidia-x11" "nvidia-settings" ];
 
     # Bootloader
     boot.loader.systemd-boot.enable = true;
