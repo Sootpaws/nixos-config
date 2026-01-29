@@ -25,9 +25,7 @@
     security.pam.services.swaylock = {};
 
     # Allow some specific unfree packages
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "factorio-space-age"
-    ];
+    allowedUnfree = [ "factorio-space-age" ];
 
     # Configure audio
     security.rtkit.enable = true;

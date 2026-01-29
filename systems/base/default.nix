@@ -2,6 +2,10 @@
 
 { lib, config, pkgs, inputs, hostName, ... }: {
     options = {
+        allowedUnfree = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [];
+        };
         homeManagerModules = lib.mkOption {
             type = lib.types.listOf lib.types.path;
             default = [];
@@ -92,6 +96,10 @@
             enable = true;
             useRoutingFeatures = "client";
         };
+
+        # Allow only explicitly named unfree packages
+        nixpkgs.config.allowUnfreePredicate =
+            pkg: builtins.elem (lib.getName pkg) config.allowedUnfree;
 
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
