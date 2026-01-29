@@ -14,6 +14,7 @@
     powerManagement.cpuFreqGovernor = "powersave";
     hardware.cpu.intel.updateMicrocode = true;
     hardware.enableRedistributableFirmware = true;
+    services.thermald.enable = true;
 
     # Bootloader
     boot.loader.systemd-boot.enable = true;
