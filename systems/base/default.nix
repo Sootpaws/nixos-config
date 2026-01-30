@@ -81,6 +81,12 @@
         # Time zone
         services.automatic-timezoned.enable = true;
 
+        # Sudo
+        security.sudo = {
+            execWheelOnly = true;
+            extraConfig = "Defaults pwfeedback";
+        };
+
         # Podman
         virtualisation.podman = {
             enable = true;
