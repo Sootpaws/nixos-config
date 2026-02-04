@@ -7,6 +7,10 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        disko = {
+            url = "github:nix-community/disko";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = inputs@{ nixpkgs, ... }: let
@@ -17,6 +21,14 @@
             modules = [
                 ./hardware/laptop
                 ./systems/workstation
+                ./users/sootpaws.nix
+                ./themes/sunset
+            ];
+        } {
+            hostName = "sootpaws-server-nixos";
+            modules = [
+                ./hardware/thinkpad
+                ./systems/server
                 ./users/sootpaws.nix
                 ./themes/sunset
             ];
