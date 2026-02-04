@@ -15,7 +15,7 @@
         nixosConfigurations = makeSystems [{
             hostName = "sootpaws-laptop-nixos";
             modules = [
-                ./hardware/laptop.nix
+                ./hardware/laptop
                 ./systems/workstation
                 ./users/sootpaws.nix
                 ./themes/sunset
@@ -23,7 +23,7 @@
         } {
             hostName = "sootpaws-rpi-nixos";
             modules = [
-                ./hardware/rpi.nix
+                ./hardware/rpi
                 ./systems/workstation
                 ./users/sootpaws.nix
                 ./themes/sunset
