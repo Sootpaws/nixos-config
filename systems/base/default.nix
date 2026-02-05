@@ -2,10 +2,6 @@
 
 { lib, config, pkgs, inputs, hostName, ... }: {
     options = {
-        allowedUnfree = lib.mkOption {
-            type = lib.types.listOf lib.types.str;
-            default = [];
-        };
         homeManagerModules = lib.mkOption {
             type = lib.types.listOf lib.types.path;
             default = [];
@@ -22,9 +18,8 @@
             home-manager.users.primary.imports = builtins.concatLists
                 [[ ./home.nix ] config.homeManagerModules];
         }
-        # Theming config
+        ../../core/unfreeList.nix
         ../../core/theme.nix
-        # Primary user info
         ../../core/primaryUserInfo.nix
     ];
 
@@ -102,10 +97,6 @@
             enable = true;
             useRoutingFeatures = "client";
         };
-
-        # Allow only explicitly named unfree packages
-        nixpkgs.config.allowUnfreePredicate =
-            pkg: builtins.elem (lib.getName pkg) config.allowedUnfree;
 
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
