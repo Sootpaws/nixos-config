@@ -5,6 +5,7 @@
         ../../programs/sway
         ../../programs/ssh-agent
         ../../programs/mpd
+        ../../programs/keepassxc
         ../../programs/alacritty
         ../../programs/mpv
         ../../programs/librewolf
@@ -38,7 +39,6 @@
     wayland.windowManager.sway.customConfig.openKeybinds = {
         a = "tor-browser";
         s = "signal-desktop";
-        k = "keepassxc";
         l = "libreoffice";
         f = "factorio";
         p = "prismlauncher";
