@@ -1,15 +1,44 @@
 { ... }: let
     makeContainers = import ../../core/makeContainers.nix;
+    ports = {
+        tcp = {
+            snepcraft = 25664;
+        };
+        udp = {
+            foxtorio = 25632;
+        };
+    };
 in {
 	imports = [ ../base ];
 
 	loginCommand = "zellij";
 
 	containers = makeContainers {
-	    snepcraft = let port = 25664; in {
+	    foxtorio = let port = ports.udp.foxtorio; in {
+	        autoStart = false;
+	        forwardPorts = {
+	            hostPort = port;
+	            protocol = "udp";
+	        };
+	        persistPath = "/var/lib/persist";
+	        config = {
+	            services.factorio = {
+	                enable = true;
+	                allowedPlayers = (import ../../private.nix).foxtorio.allowlist;
+	                autosave-interval = 15;
+	                game-name = "Foxtorio";
+	                description = "Yip! (The factory must grow!)";
+	                inherit port;
+	                saveName = "foxtorio";
+	                stateDirName = "persist/factorio";
+	            };
+	            allowedUnfree = [ "factorio-headless" ];
+	        };
+	    };
+	    snepcraft = let port = ports.tcp.snepcraft; in {
 	        autoStart = false;
 	        forwardPorts.hostPort = port;
-	        config = { lib, ... }: {
+	        config = {
 	            services.minecraft-server = {
 	                enable = true;
 	                dataDir = "/nix/persist/minecraft";
@@ -21,13 +50,15 @@ in {
 	                    server-port = port;
 	                    white-list = true;
 	                };
-	                whitelist = (import ../../private.nix).snepcraft.whitelist;
+	                whitelist = (import ../../private.nix).snepcraft.allowlist;
 	            };
 	            allowedUnfree = [ "minecraft-server"];
-	            system.stateVersion = "26.01";
 	        };
 	    };
 	};
 
-    networking.firewall.allowedTCPPorts = [ 25664 ];
+    networking.firewall = {
+        allowedTCPPorts = builtins.attrValues ports.tcp;
+        allowedUDPPorts = builtins.attrValues ports.udp;
+    };
 }
