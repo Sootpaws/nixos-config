@@ -13,7 +13,7 @@
 
     imports = [
         # Use Home Manager for user configuration
-        inputs.homeManager.nixosModules.home-manager {
+        inputs.home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.users.primary.imports = builtins.concatLists
                 [[ ./home.nix ] config.homeManagerModules];
@@ -65,6 +65,7 @@
             description = config.primaryUserInfo.systemName;
             hashedPassword = (import ../../private.nix).mainHashedPassword;
             extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
+            openssh.authorizedKeys.keys = [ config.primaryUserInfo.sshKey ];
         };
 
         # Configure networking

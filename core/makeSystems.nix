@@ -1,4 +1,4 @@
-inputs@{ nixpkgs, homeManager, ... }: configs:
+inputs@{ nixpkgs, ... }: configs:
     let makeSystem = { hostName, modules }:
         nixpkgs.lib.nixosSystem {
             specialArgs = { inherit hostName inputs; };

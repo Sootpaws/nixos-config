@@ -204,6 +204,13 @@
         target = "sway/wallpaper.jpg";
     };
 
+    # Set up screen sharing
+    config.xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+        config.common.default = "*";
+    };
+
     # Configure swaylock
     config.programs.swaylock = {
         enable = true;

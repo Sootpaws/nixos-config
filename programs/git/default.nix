@@ -11,6 +11,7 @@
             };
 
             init.defaultBranch = "main";
+            pull.rebase = true;
 
             alias = {
                 s = "status";
