@@ -1,4 +1,4 @@
-{ ... }: let
+{ config, ... }: let
     makeContainers = import ../../core/makeContainers.nix;
     ports = {
         tcp = {
@@ -70,7 +70,7 @@ in {
             PasswordAuthentication = false;
             KbdInteractiveAuthentication = false;
             PermitRootLogin = "no";
-            AllowUsers = [ users.users.primary.name ];
+            AllowUsers = [ config.users.users.primary.name ];
         };
 	    authorizedKeysInHomedir = false;
 	};
