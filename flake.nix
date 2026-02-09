@@ -16,31 +16,26 @@
     outputs = inputs@{ nixpkgs, ... }: let
         makeSystems = import ./core/makeSystems.nix inputs;
     in {
-        nixosConfigurations = makeSystems [{
-            hostName = "sootpaws-laptop-nixos";
-            modules = [
+        nixosConfigurations = makeSystems {
+            sootpaws-laptop-nixos = [
                 ./hardware/laptop
                 ./systems/workstation
                 ./users/sootpaws.nix
                 ./themes/sunset
             ];
-        } {
-            hostName = "sootpaws-server-nixos";
-            modules = [
+            sootpaws-server-nixos = [
                 ./hardware/thinkpad
                 ./systems/server
                 ./users/sootpaws.nix
                 ./themes/sunset
             ];
-        } {
-            hostName = "sootpaws-rpi-nixos";
-            modules = [
+            sootpaws-rpi-nixos = [
                 ./hardware/rpi
                 ./systems/workstation
                 ./users/sootpaws.nix
                 ./themes/sunset
             ];
-        }];
+        };
         devShells.x86_64-linux.default = let
             pkgs = nixpkgs.legacyPackages.x86_64-linux;
         in pkgs.mkShell {
