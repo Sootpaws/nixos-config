@@ -11,6 +11,9 @@
 in {
 	imports = [ ../base ];
 
+    # Disable sleep when closed and plugged in
+	services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
+
 	loginCommand = "zellij";
 
 	containers = makeContainers {
