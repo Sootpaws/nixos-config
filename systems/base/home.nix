@@ -23,7 +23,7 @@
         gitui.enable = true;
         micro.enable = true;
         nushell.enable = true;
-        starship.starship = true;
+        starship.enable = true;
         zellij.enable = true;
     };
 
