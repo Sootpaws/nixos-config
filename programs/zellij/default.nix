@@ -32,10 +32,8 @@
         }) bindings);
     in {
         programs.zellij = {
-            enable = true;
             settings = {
                 ui.pane_frames.hide_session_name = true;
-                # default_shell = config.home.sessionVariables.SHELL;
                 session_serialization = false;
                 show_startup_tips = false;
                 keybinds = {

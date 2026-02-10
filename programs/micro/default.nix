@@ -1,5 +1,3 @@
-# Configuration for the Micro text editor
-
 { osConfig, pkgs, ... }: let
     patchedPlugins = builtins.fetchGit {
         url = "https://github.com/humannum14916/updated-plugins.git";
@@ -7,42 +5,26 @@
         rev = "7c183117ef6546ef39a8891f2d1cbac7a6ed42ab";
     };
 in {
-    # Install wl-clipboard for clipboard access
+    # Needed for external clipboard
     home.packages = with pkgs; [ wl-clipboard ];
-    # Set Micro as the main editor
+
     home.sessionVariables.EDITOR = "micro";
-    # Enable true-color
     home.sessionVariables.MICRO_TRUECOLOR = 1;
-    # settings.json config, directly configurable through Nix
+
     programs.micro = {
-        # Actually enable Micro
-        enable = true;
         settings = {
-            # Use the system clipboard
             clipboard = "external";
-            # Highlight column 80
             colorcolumn = 80;
-            # Set the color scheme
             colorscheme = "systheme";
-            # Enable the diff gutter
             diffgutter = true;
-            # Open the file manager on startup
             "filemanager.openonstart" = true;
-            # Don't show dotfiles in the file tree
             "filemanager.showdotfiles" = false;
-            # Don't show files ignored by VCS
             "filemanager.showignored" = false;
-            # Keep search results highlighted
             hlsearch = true;
-            # Open multiple files as vertical splits
             multiopen = "vsplit";
-            # Trim trailing whitespace from lines
             rmtrailingws = true;
-            # Enable the scroll bar
             scrollbar = true;
-            # Set scroll speed
             scrollspeed = 8;
-            # Status line format (left side)
             statusformatl =
                 "$(modified)$(filename) " +
                 "($(line)/$(lines),$(col)) %$(percentage) " +
@@ -50,22 +32,17 @@ in {
                 "$(status.branch)@$(status.hash) | " +
                 "$(status.size) .$(opt:filetype) " +
                 "$(opt:fileformat),$(opt.encoding)";
-            # Don't show anything on the right side of the status bar
             statusformatr = "";
-            # Treat spaces like tabs for cusror movement
             tabmovement = true;
-            # Use spaces instead of tabs
             tabstospaces = true;
         };
     };
-    # Directly-linked config files
+
     xdg.configFile = {
-        # bindings.json
         microBindings = {
             source = ./bindings.json;
             target = "micro/bindings.json";
         };
-        # Color scheme
         microColorScheme = {
             text = import ./colorScheme.nix osConfig.theme.colors;
             target = "micro/colorschemes/systheme.micro";

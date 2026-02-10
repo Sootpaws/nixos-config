@@ -1,9 +1,5 @@
-# Configuration for the Git version control system
-
-{ osConfig, ... }: {
+{ config, osConfig, ... }: {
     programs.git = {
-        enable = true;
-
         settings = {
             user = {
                 name = osConfig.primaryUserInfo.displayName;
@@ -30,7 +26,7 @@
     };
 
     programs.delta = {
-        enable = true;
+        enable = config.programs.git.enable;
         enableGitIntegration = true;
         options = {
             features = "side-by-side";

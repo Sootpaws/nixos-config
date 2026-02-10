@@ -1,10 +1,5 @@
-# Configuration for the Starship prompt
-
 { lib, osConfig, ... }: {
     programs.starship = {
-        enable = true;
-
-        # This will be used with Nushell
         enableNushellIntegration = true;
 
         settings = {

@@ -2,19 +2,30 @@
 
 { lib, osConfig, pkgs, settings, ... }: {
     imports = [
-        ../../programs/zellij
+        ../../programs/btop
+        ../../programs/direnv
+        ../../programs/git
+        ../../programs/micro
         ../../programs/nushell
         ../../programs/starship
-        ../../programs/direnv
-        ../../programs/micro
-        ../../programs/git
-        ../../programs/gitui
-        ../../programs/btop
+        ../../programs/zellij
     ];
 
     # General info
     home.username = osConfig.primaryUserInfo.systemName;
     home.homeDirectory = "/home/" + osConfig.primaryUserInfo.systemName;
+
+    # Preconfigured packages
+    programs = {
+        btop.enable = true;
+        direnv.enable = true;
+        git.enable = true;
+        gitui.enable = true;
+        micro.enable = true;
+        nushell.enable = true;
+        starship.starship = true;
+        zellij.enable = true;
+    };
 
     # Install-only packages
     home.packages = with pkgs; [
