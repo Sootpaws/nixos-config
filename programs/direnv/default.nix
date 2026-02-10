@@ -1,5 +1,5 @@
-{ ... }: {
+{ config, ... }: {
     programs.direnv = {
-        enableNushellIntegration = true;
+        enableNushellIntegration = config.programs.nushell.enable;
     };
 }
