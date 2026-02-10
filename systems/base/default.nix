@@ -66,6 +66,7 @@
             hashedPassword = (import ../../private.nix).mainHashedPassword;
             extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
             openssh.authorizedKeys.keys = config.primaryUserInfo.sshKeys;
+            shell = pkgs.nushell;
         };
 
         # Configure networking

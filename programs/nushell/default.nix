@@ -1,14 +1,9 @@
-# Configuration for the Nu shell
-
 { ... }: {
-    home.sessionVariables.SHELL = "nu";
+    # home.sessionVariables.SHELL = "nu";
 
     programs.nushell = {
-        # Actually enable Nu
         enable = true;
-        # Link the config file
         configFile = { source = ./config.nu; };
-        # Link the environment file
         envFile = { source = ./env.nu; };
 
         shellAliases = {
