@@ -8,7 +8,7 @@ in {
         lib.mkOption { type = lib.types.attrsOf lib.types.str; };
 
     # Other programs used in default config
-    config.home.packages = with pkgs; [ dmenu-rs wlrctl ];
+    config.home.packages = if enable then with pkgs; [ dmenu-rs wlrctl ] else [];
 
     # Main sway config
     config.wayland.windowManager.sway = let
