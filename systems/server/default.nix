@@ -15,6 +15,7 @@ in {
 	services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
 	loginCommand = "zellij";
+	home-manager.users.primary.programs.zellij.config.modifier = [ "Super" ];
 
 	containers = makeContainers {
 	    foxtorio = let port = ports.udp.foxtorio; in {
