@@ -1,6 +1,6 @@
-{ lib, osConfig, ... }: {
+{ lib, osConfig, config, ... }: {
     programs.starship = {
-        enableNushellIntegration = true;
+        enableNushellIntegration = config.programs.nushell.enable;
 
         settings = {
             add_newline = false;

@@ -7,6 +7,7 @@
     };
 in {
     # Needed for external clipboard
+    # TODO: Only use if wayland
     home.packages = if enable then with pkgs; [ wl-clipboard ] else [];
 
     home.sessionVariables = if enable then {

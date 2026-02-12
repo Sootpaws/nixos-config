@@ -1,6 +1,8 @@
 { ... }: {
     programs.nushell = {
+        # TODO: Config in nix
         configFile = { source = ./config.nu; };
+        # TODO: Fix this mess
         envFile = { source = ./env.nu; };
 
         shellAliases = {

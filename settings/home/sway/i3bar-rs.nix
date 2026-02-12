@@ -1,6 +1,6 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
     programs.i3status-rust = {
-        enable = true;
+        enable = config.wayland.windowManager.sway.enable;
         bars.default = {
             icons = "material-nf";
             blocks = [

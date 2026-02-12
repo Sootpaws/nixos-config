@@ -1,15 +1,7 @@
 # Home Manager configuration for graphical environments
 
 { pkgs, config, osConfig, ... }: {
-    imports = [
-        ../../programs/sway
-        ../../programs/ssh-agent
-        ../../programs/mpd
-        ../../programs/keepassxc
-        ../../programs/alacritty
-        ../../programs/mpv
-        ../../programs/librewolf
-    ];
+    imports = [ ../../settings/home/keepassxc ];
 
     # Have Home Manager manage XDG directories
     xdg = {
@@ -19,6 +11,18 @@
 
     # Enable fontconfig
     fonts.fontconfig.enable = true;
+
+    # Preconfigured packages
+    programs = {
+        alacritty.enable = true;
+        librewolf.enable = true;
+        mpv.enable = true;
+    };
+    services = {
+        mpd.enable = true;
+        ssh-agent.enable = true;
+    };
+    wayland.windowManager.sway.enable = true;
 
     # Install-only packages
     home.packages = with pkgs; [

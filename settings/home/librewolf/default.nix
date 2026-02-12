@@ -1,7 +1,6 @@
 { ... }: {
     wayland.windowManager.sway.customConfig.openKeybinds.w = "librewolf";
     programs.librewolf = {
-        enable = true;
         profiles.default = {
             # TODO: extensions - ublock, canvasblocker
             # TODO: search

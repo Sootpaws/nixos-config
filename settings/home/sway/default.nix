@@ -1,6 +1,6 @@
-# Configuration for the Sway tiling Wayland compositor
-
-{ osConfig, pkgs, lib, config, ... }: {
+{ osConfig, pkgs, lib, config, ... }: let
+    enable = config.wayland.windowManager.sway.enable;
+in {
     imports = [ ./i3bar-rs.nix ];
 
     # Open-mode bindings
@@ -16,7 +16,7 @@
         theme = osConfig.theme;
         # Use common windowing keybinds
         modifier = [ config.wayland.windowManager.sway.config.modifier ];
-        keybinds = import ../../common/windowing.nix { inherit modifier; };
+        keybinds = import ../../../common/windowing.nix { inherit modifier; };
         bindName = keys: lib.strings.concatMapStringsSep "+" toString keys;
         formatBinds = bindings: builtins.listToAttrs (map (binding: with binding; {
             name = bindName keys;
@@ -34,7 +34,6 @@
             }.${action.type};
         }) bindings);
     in {
-        enable = true;
         checkConfig = false; # TODO: fix wallpaper causing failure
         customConfig.openKeybinds = {
             m = "dmenu_path | dmenu | xargs swaymsg exec --";
@@ -200,19 +199,20 @@
 
     # Link the wallpaper image
     config.xdg.configFile.swayWallpaper = {
+        inherit enable;
         source = osConfig.theme.wallpaper;
         target = "sway/wallpaper.jpg";
     };
 
     # Set up screen sharing
     config.xdg.portal = {
-        enable = true;
+        inherit enable;
         extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
         config.common.default = "*";
     };
 
     # Configure swaylock
     config.programs.swaylock = {
-        enable = true;
+        inherit enable;
     };
 }

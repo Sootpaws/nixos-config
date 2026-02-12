@@ -8,7 +8,7 @@
     config = let
         modifier = config.programs.zellij.config.modifier;
         # Use common windowing keybinds
-        keybinds = import ../../common/windowing.nix { inherit modifier; };
+        keybinds = import ../../../common/windowing.nix { inherit modifier; };
         bindName = keys: "bind \"${ toString keys }\"";
         formatBinds = bindings: builtins.listToAttrs (map (binding: with binding; {
             name = bindName (map (key:
@@ -49,6 +49,7 @@
             };
         };
         xdg.configFile.zellijLayouts = {
+            enable = config.programs.zellij.enable;
             source = ./layouts;
             recursive = true;
             target = "zellij/layouts";

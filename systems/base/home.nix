@@ -1,15 +1,7 @@
 # Home Manager configuration for the primary user
 
 { lib, osConfig, pkgs, settings, ... }: {
-    imports = [
-        ../../programs/btop
-        ../../programs/direnv
-        ../../programs/git
-        ../../programs/micro
-        ../../programs/nushell
-        ../../programs/starship
-        ../../programs/zellij
-    ];
+    imports = [ ../../settings/home ];
 
     # General info
     home.username = osConfig.primaryUserInfo.systemName;
