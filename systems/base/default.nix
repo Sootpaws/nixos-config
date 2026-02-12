@@ -21,6 +21,7 @@
         ../../core/unfreeList.nix
         ../../core/theme.nix
         ../../core/primaryUserInfo.nix
+        ../../settings/system
     ];
 
     config = {
