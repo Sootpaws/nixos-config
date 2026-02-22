@@ -1,6 +1,7 @@
 # Shorthands for common operations
 
 deploy:
+	sudo echo Caching sudo...
 	sudo nixos-rebuild switch --flake path:. \
 		--log-format internal-json -v \
 		|& nom --json
