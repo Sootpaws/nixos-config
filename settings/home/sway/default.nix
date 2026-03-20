@@ -147,6 +147,7 @@ in {
                     size = 10.0;
                 };
                 position = "top";
+                trayOutput = "none";
                 statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
                 colors = with theme.colors; {
                     background = primary.medium;
