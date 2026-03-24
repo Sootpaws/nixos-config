@@ -17,15 +17,17 @@
     # Enable the Brillo backlight controller
     hardware.brillo.enable = true;
 
-    # Enable VirtualBox
-    virtualisation.virtualbox.host.enable = true;
-    users.users.primary.extraGroups = [ "vboxusers" ];
+    # Enable Steam
+    programs.steam.enable = true;
 
     # Make PAM and Swaylock cooperate
     security.pam.services.swaylock = {};
 
     # Allow some specific unfree packages
-    allowedUnfree = [ "factorio-space-age" ];
+    allowedUnfree = [
+        "factorio-space-age"
+        "steam" "steam-wrapped" "steam-unwrapped"
+    ];
 
     # Configure audio
     security.rtkit.enable = true;
