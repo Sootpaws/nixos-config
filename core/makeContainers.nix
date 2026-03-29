@@ -8,7 +8,7 @@ containers: let
             system.stateVersion = "26.01";
         };
         ephemeral = true;
-        # privateUsers = "pick";
+        privateUsers = "pick";
         bindMounts.persist = {
             mountPoint = persistPath;
             hostPath = "/nix/persist/container/${name}";
