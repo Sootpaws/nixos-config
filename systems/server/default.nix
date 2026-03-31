@@ -17,7 +17,7 @@ in {
 	loginCommand = "zellij";
 	home-manager.users.primary.programs.zellij.config.modifier = [ "Super" ];
 
-	containers = makeContainers {
+	serviceContainers = {
 	    foxtorio = let port = ports.udp.foxtorio; in {
 	        autoStart = false;
 	        forwardPorts = {

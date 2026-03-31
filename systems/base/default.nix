@@ -18,9 +18,7 @@
             home-manager.users.primary.imports = builtins.concatLists
                 [[ ./home.nix ] config.homeManagerModules];
         }
-        ../../core/unfreeList.nix
-        ../../core/theme.nix
-        ../../core/primaryUserInfo.nix
+        ../../core
         ../../settings/system
     ];
 
