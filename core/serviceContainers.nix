@@ -14,6 +14,15 @@
             isReadOnly = false;
         };
     };
+    createPersist = containers: builtins.listToAttrs (builtins.map (name: {
+        name = "container@${name}";
+        value = let dir = "/nix/persist/container/${name}"; in {
+            preStart = ''
+                mkdir --parents ${dir}
+                chmod a+rwx ${dir}
+            '';
+        };
+    }) (builtins.attrNames containers));
 in {
     options = with lib; with types; {
         serviceContainers = mkOption {
@@ -36,6 +45,10 @@ in {
         };
     };
     config = {
+        # Main container definitions
         containers = builtins.mapAttrs makeContainer config.serviceContainers;
+
+        # Persistent directory creation
+        systemd.services = createPersist config.serviceContainers;
     };
 }
