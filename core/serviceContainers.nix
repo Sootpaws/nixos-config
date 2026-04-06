@@ -1,5 +1,5 @@
 { lib, config, ... }: let
-    makeContainer = name: { autoStart, forwardPorts, config, persistPath ? "/nix/persist" }: {
+    makeContainer = name: { autoStart, forwardPorts, config }: {
         inherit autoStart forwardPorts;
         config = {
             imports = [ ./unfreeList.nix config ];
@@ -9,7 +9,7 @@
         ephemeral = true;
         privateUsers = "pick";
         bindMounts.persist = {
-            mountPoint = persistPath;
+            mountPoint = "/nix/persist";
             hostPath = "/nix/persist/container/${name}";
             isReadOnly = false;
         };
@@ -36,10 +36,6 @@ in {
                     default = {};
                 };
                 config = mkOption { type = anything; };
-                persistPath = mkOption {
-                    type = str;
-                    default = "/nix/persist";
-                };
             }; });
             default = {};
         };
