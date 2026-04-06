@@ -24,8 +24,7 @@ in {
 	            hostPort = port;
 	            protocol = "udp";
 	        };
-	        persistPath = "/var/lib/persist";
-	        config = {
+	        config = args@{ ... }: {
 	            services.factorio = {
 	                enable = true;
 	                allowedPlayers = (import ../../private.nix).foxtorio.allowlist;
@@ -34,9 +33,24 @@ in {
 	                description = "Yip! (The factory must grow!)";
 	                inherit port;
 	                saveName = "foxtorio";
-	                stateDirName = "persist/factorio";
 	            };
 	            allowedUnfree = [ "factorio-headless" ];
+	            # Putting the save files in /nix/persist
+	            systemd.services.factorio = {
+	                # Horrible hack because lib.mkBefore doesn't work somehow
+    	            preStart = let
+    	                cfg = args.config.services.factorio;
+    	                stateDir = "/var/lib/${cfg.stateDirName}";
+    	                savePath = "${stateDir}/saves/${cfg.saveName}.zip";
+    	            in toString [
+    	                "mkdir -p /nix/persist/factorio\n"
+    	                "mv ${stateDir}/saves ${stateDir}/new_save\n"
+                        "ln -s /nix/persist/factorio ${stateDir}/saves\n"
+                        "test -e ${savePath} || mv ${stateDir}/new_save/* ${stateDir}/saves\n"
+                        "rm -r ${stateDir}/new_save"
+    	            ];
+	                serviceConfig.ReadWritePaths = "/nix/persist";
+    	        };
 	        };
 	    };
 	    snepcraft = let port = ports.tcp.snepcraft; in {
