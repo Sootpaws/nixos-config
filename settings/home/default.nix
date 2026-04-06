@@ -8,7 +8,6 @@
         ./micro
         ./mpd
         ./nushell
-        ./ssh-agent
         ./starship
         ./sway
         ./zellij
