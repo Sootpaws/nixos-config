@@ -34,7 +34,6 @@ in {
             }.${action.type};
         }) bindings);
     in {
-        checkConfig = false; # TODO: fix wallpaper causing failure
         customConfig.openKeybinds = {
             m = "dmenu_path | dmenu | xargs swaymsg exec --";
             n = "echo nixpkgs#`echo nixpkgs | dmenu` | xargs swaymsg exec -- nix run";
@@ -194,15 +193,17 @@ in {
                     drag = "disabled";
                 };
             };
-            output."*".bg = "~/.config/sway/wallpaper.jpg fill";
+            output."*".bg = let
+                bgPath = osConfig.theme.wallpaper;
+                bgName = builtins.baseNameOf bgPath;
+                drv = pkgs.stdenv.mkDerivation {
+                    name = "swaybg";
+                    src = bgPath;
+                    dontUnpack = true;
+                    installPhase = "mkdir $out; cp $src $out/${bgName}";
+                };
+            in "${drv}/${bgName} fill";
         };
-    };
-
-    # Link the wallpaper image
-    config.xdg.configFile.swayWallpaper = {
-        inherit enable;
-        source = osConfig.theme.wallpaper;
-        target = "sway/wallpaper.jpg";
     };
 
     # Set up screen sharing
