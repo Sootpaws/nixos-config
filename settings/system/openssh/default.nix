@@ -1,7 +1,7 @@
 { config, ... }: {
 	services.openssh = {
 	    ports = [ 25616 ];
-        banner = "meow meow meow :3";
+        banner = "meow meow meow :3\n";
 
         hostKeys = [ {
             type = "ed25519";
