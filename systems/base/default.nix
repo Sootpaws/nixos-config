@@ -26,20 +26,18 @@
         # Enable flakes
         nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-        # Disable channels, use the version of nixpkgs  the system was built
+        # Disable channels, use the version of nixpkgs the system was built
         # with instead
         nix.channel.enable = false;
         nix.registry.nixpkgs.flake = inputs.nixpkgs;
         nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-        # Enable automatic nix store cleaning
+        # Enable automatic nix store cleaning and optimization
         nix.gc = {
             automatic = true;
             dates = "weekly";
             options = "--delete-older-than 30d";
         };
-
-        # Enable automatic nix store optimization
         nix.optimise.automatic = true;
 
         # Use greetd for login
@@ -92,12 +90,6 @@
 
         # Firmware updates
         services.fwupd.enable = true;
-
-        # Tailscale
-        services.tailscale = {
-            enable = true;
-            useRoutingFeatures = "client";
-        };
 
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
