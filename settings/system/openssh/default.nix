@@ -1,7 +1,6 @@
 { config, ... }: {
 	services.openssh = {
 	    ports = [ 25616 ];
-        banner = "meow meow meow :3\n";
 
         hostKeys = [ {
             type = "ed25519";
@@ -12,6 +11,7 @@
             KbdInteractiveAuthentication = false;
             PermitRootLogin = "no";
             AllowUsers = [ config.users.users.primary.name ];
+            Banner = "meow meow meow :3\n";
         };
 	    authorizedKeysInHomedir = false;
 	};
