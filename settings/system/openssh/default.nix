@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
 	services.openssh = {
 	    ports = [ 25616 ];
 
@@ -11,7 +11,7 @@
             KbdInteractiveAuthentication = false;
             PermitRootLogin = "no";
             AllowUsers = [ config.users.users.primary.name ];
-            Banner = "meow meow meow :3\n";
+            Banner = "${ pkgs.writeText "ssh-banner" "meow meow meow :3\n" }";
         };
 	    authorizedKeysInHomedir = false;
 	};
