@@ -30,7 +30,11 @@
     boot.kernelModules = [ "kvm-intel" ];
     boot.extraModulePackages = [ ];
 
-    # Since preOpenCommands happens after waiting for the header to show up
-    boot.initrd.preLVMCommands = lib.mkBefore "sleep 3; mount -vrm /dev/disk/by-label/KEYS /keys";
-    boot.initrd.postDeviceCommands = "umount /keys; rmdir /keys";
+    # LUKS header mount
+    boot.initrd.systemd.mounts = [{
+        wantedBy = [ "cryptsetup.target" ];
+        what = "/dev/disk/by-label/KEYS";
+        where = "/keys";
+        options = "ro";
+    }];
 }
