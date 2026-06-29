@@ -18,6 +18,7 @@
             home-manager.users.primary.imports = builtins.concatLists
                 [[ ./home.nix ] config.homeManagerModules];
         }
+        inputs.sops-nix.nixosModules.sops
         ../../core
         ../../settings/system
     ];
@@ -60,7 +61,7 @@
             isNormalUser = true;
             name = config.primaryUserInfo.systemName;
             description = config.primaryUserInfo.systemName;
-            hashedPassword = (import ../../private.nix).mainHashedPassword;
+            hashedPasswordFile = config.sops.secrets.mainHashedPassword.path;
             extraGroups = [ "wheel" "networkmanager" "video" "docker" ];
             openssh.authorizedKeys.keys = config.primaryUserInfo.sshKeys;
             shell = pkgs.nushell;
@@ -92,6 +93,16 @@
         services.fwupd.enable = true;
 
     	services.openssh.enable = true;
+
+    	sops = {
+    	    defaultSopsFile = ../../secrets/simple.yaml;
+    	    age.sshKeyPaths = [ "/nix/persist/etc/ssh/host_key" ];
+    	    secrets = {
+    	        mainHashedPassword = {
+    	            neededForUsers = true;
+    	        };
+    	    };
+    	};
 
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
