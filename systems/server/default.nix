@@ -75,8 +75,6 @@ in {
 	    };
 	};
 
-	services.openssh.enable = true;
-
     networking.firewall = {
         allowedTCPPorts = builtins.attrValues ports.tcp;
         allowedUDPPorts = builtins.attrValues ports.udp;

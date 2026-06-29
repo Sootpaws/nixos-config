@@ -91,6 +91,8 @@
         # Firmware updates
         services.fwupd.enable = true;
 
+    	services.openssh.enable = true;
+
         # Internationalisation
         i18n = let locale = "en_US.UTF-8"; in {
             defaultLocale = locale;
