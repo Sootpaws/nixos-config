@@ -1,9 +1,12 @@
 keys:
     - &sootpaws_primary age1jl0xtta5j4yqfqdq0pfeggdq9l4yuqwj58xxtr5k3u2jat8dnunq4u9e3l
     - &laptop age13e87sudq9ljxeezs3gf7djw32nty5488kldspuu9v9a2r447e53qch9lea
+    - &server age10457rqk6ju88etzn0cu87fcszycgxxhkagqpklf84mm0yzypr43q0qc82n
+    # sops updatekeys secrets/*
 creation_rules:
     - path_regex: secrets/[^/]+$
       key_groups:
       - age:
         - *sootpaws_primary
         - *laptop
+        - *server
