@@ -57,7 +57,7 @@ in {
                 ${ bindName [ "Shift" "F2" ] } =
                     "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%- -l 1.2";
                 ${ bindName [ "Shift" "F3" ] } =
-                "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1.2";
+                    "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1.2";
                 ${ bindName [ "F4" ] } = "exec mpc toggle";
                 ${ bindName [ "F6" ] } = "exec brillo -U 5";
                 ${ bindName [ "F7" ] } = "exec brillo -A 5";
